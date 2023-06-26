@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_25_200058) do
   end
 
   create_table "tests", force: :cascade do |t|
+    t.string "name_autor", null: false
     t.string "title", null: false
     t.integer "level", default: 0, null: false
     t.datetime "created_at", null: false
