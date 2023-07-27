@@ -32,3 +32,4 @@ end
 Result.create!([{status: true, test_id: 1, user_id: user.id},
                 {status: true, test_id: 2, user_id: user.id},
                 {status: false, test_id: 3, user_id: user.id}])
+                
