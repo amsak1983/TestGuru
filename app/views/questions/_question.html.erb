@@ -1,0 +1,7 @@
+<table>
+<tr><%= question.body %></tr><br>
+
+  <%= link_to 'Show', question %> |
+  <%= link_to 'Edit', edit_question_path(question)  %> |
+  <%= button_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+</table>

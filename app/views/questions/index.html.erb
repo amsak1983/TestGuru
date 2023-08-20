@@ -1,8 +1,0 @@
-<h1>Questions:</h1>
-<% @questions.each do |question| %>
-  <p>
-    <%= question.body %>
-    <br>
-    <%= button_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </p>
-<% end %>
