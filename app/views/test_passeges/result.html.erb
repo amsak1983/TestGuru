@@ -1,0 +1,15 @@
+<h1>The <%= @test_passage.test.title %> was completed!</h1>
+
+<% if @test_passage.successful_passage? %>
+  <p>
+    Your pass percentage: <strong style="color:#0ED002" ><%= @test_passage.percentage_completion %> %</strong><br>
+    <strong style="color:#0ED002">Success!</strong>
+  </p>
+<% else %>
+  <p>
+    Your pass percentage: <strong style="color:#FC0221"><%= @test_passage.percentage_completion %> %</strong><br>
+    <strong style="color:#FC0221" >Failed :(</strong>
+  </p>
+<% end %>
+
+<%= link_to 'All Tests', tests_path %>

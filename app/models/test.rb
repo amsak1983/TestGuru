@@ -1,7 +1,7 @@
 class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
-  has_many :results, dependent: :destroy
-  has_many :users, through: :results
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
 
   belongs_to :creator, class_name: 'User', foreign_key: :creator_id
   belongs_to :category
@@ -15,9 +15,11 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
-  scope :tests_of_category, -> (category_title) { joins(:category)
-                                                 .where(categories: {title: category_title})
-                                                 .order(id: :DESC) }
+  scope :tests_of_category, lambda { |category_title|
+                              joins(:category)
+                                .where(categories: { title: category_title })
+                                .order(id: :DESC)
+                            }
 
   def self.tests_of_category_names(category_title)
     tests_of_category(category_title).pluck(:title)
