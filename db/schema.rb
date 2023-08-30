@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_155728) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_155728) do
+  
   create_table 'answers', force: :cascade do |t|
     t.string 'body', null: false
     t.boolean 'correct', default: false, null: false
@@ -55,15 +56,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_155728) do
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['category_id'], name: 'index_tests_on_category_id'
     t.index ['creator_id'], name: 'index_tests_on_creator_id'
-    t.index %w[title level], name: 'index_tests_on_title_and_level', unique: true
+    t.index ['title', 'level'], name: 'index_tests_on_title_and_level', unique: true
   end
 
   create_table 'users', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'email', null: false
-    t.string 'role', null: false
+    t.string 'role', default: 'user', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'password_digest'
   end
 
   add_foreign_key 'answers', 'questions'

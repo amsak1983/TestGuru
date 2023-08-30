@@ -7,25 +7,25 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-creator = User.create!(name: 'Bob', email: 'bob@gmail.com', role: 'creator')
-user = User.create!(name: 'Tom', email: 'tom@gmail.com', role: 'user')
+creator = User.create!(name: 'Bob', email: 'bob@gmail.com', role: 'creator', password_digest: 'testguru')
+user = User.create!(name: 'Tom', email: 'tom@gmail.com', role: 'user', password_digest: 'testguru')
 
 category = Category.create!(title: 'category1')
 
-tests = Test.create!([{title: 'test1', level: 0, category: category, creator: creator},
-                      {title: 'test2', level: 1, category: category, creator: creator},
-                      {title: 'test3', level: 2, category: category, creator: creator}])
+tests = Test.create!([{ title: 'test1', level: 0, category: category, creator: creator },
+                      { title: 'test2', level: 1, category: category, creator: creator },
+                      { title: 'test3', level: 2, category: category, creator: creator }])
 
 tests.each do |test|
-  Question.create!([{body: 'question1', test: test},
-                    {body: 'question2', test: test},
-                    {body: 'question3', test: test}])
-  TestPassage.create!(user: user, test: test, current_qustion: test.question.first, correct_questions: 0)
+  Question.create!([{ body: 'question1', test: test },
+                    { body: 'question2', test: test },
+                    { body: 'question3', test: test }])
+  TestPassage.create!(user: user, test: test, current_question: test.questions.first, correct_questions: 0)
 end
 
 Question.all.each do |question|
-  Answer.create!([{body: 'answer1', correct: false, question: question},
-                  {body: 'answer2', correct: true, question: question},
-                  {body: 'answer3', correct: false, question: question},
-                  {body: 'answer4', correct: false, question: question}])
+  Answer.create!([{ body: 'answer1', correct: false, question: question },
+                  { body: 'answer2', correct: true, question: question },
+                  { body: 'answer3', correct: false, question: question },
+                  { body: 'answer4', correct: false, question: question }])
 end

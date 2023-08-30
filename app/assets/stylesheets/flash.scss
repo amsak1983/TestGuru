@@ -1,0 +1,14 @@
+.flash {
+  text-align: center;
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.flash.notice {
+  border-color: lawngreen;
+}
+
+.flash.alert {
+  border-color: #ef2727;
+}
