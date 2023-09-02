@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  validates :email, uniqueness: { case_sensitive: false }, format: URI::MailTo::EMAIL_REGEXP
+  validates :email, uniqueness: { case_sensitive: false }, format: URI::MailTo::EMAIL_REGEXP, uniqueness: true
   validates :name, :email, presence: true
 
   def show_tests(level)
