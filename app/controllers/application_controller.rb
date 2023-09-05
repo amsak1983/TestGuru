@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?
+  before_action :configure_registration_params, if: :devise_controller?
+  protect_from_forgery with: :exception
 
   private
 
-  def authenticate_user!
-    return if current_user
-
-    cookies[:past_url] = request.url
-    redirect_to login_path, alert: 'Verify your Email and Password please!'
+  def after_sign_in_path_for(user)
+    if user.is_a?(Admin)
+      admin_tests_path
+    else
+      super
+    end
   end
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
+  def configure_registration_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[username first_name last_name])
   end
 end

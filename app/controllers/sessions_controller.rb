@@ -1,20 +1,9 @@
-class SessionsController < ApplicationController
-  def new; end
-
+class SessionsController < Devise::SessionsController
   def create
-    user = User.find_by(email: params[:email])
-
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to cookies.delete(:users_initial_request) || tests_path
-    else
-      flash.now[:alert] = 'Verify your Email and Password please!'
-      render :new
-    end
-  end
-
-  def destroy
-    session.delete(:user_id)
-    redirect_to tests_path
+    self.resource = warden.authenticate!(auth_options)
+    set_flash_message!(:notice, :signed_in, username: current_user.last_name + ' ' + current_user.first_name)
+    sign_in(resource_name, resource)
+    yield resource if block_given?
+    respond_with resource, location: after_sign_in_path_for(resource)
   end
 end

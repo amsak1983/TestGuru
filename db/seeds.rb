@@ -7,14 +7,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-creator = User.create!(name: 'Bob', email: 'bob@gmail.com', role: 'creator', password_digest: 'testguru')
-user = User.create!(name: 'Tom', email: 'tom@gmail.com', role: 'user', password_digest: 'testguru')
+admin = Admin.create!(first_name: 'Bob', last_name: 'Cooper', username: 'bobcop', email: 'bob@gmail.com', type: 'Admin',
+                      password: 'testguru')
+user = User.create!(first_name: 'Tom', last_name: 'Cooper', username: 'tomcop', email: 'tom@gmail.com', type: 'User',
+                    password: 'testguru')
 
 category = Category.create!(title: 'category1')
 
-tests = Test.create!([{ title: 'test1', level: 0, category: category, creator: creator },
-                      { title: 'test2', level: 1, category: category, creator: creator },
-                      { title: 'test3', level: 2, category: category, creator: creator }])
+tests = Test.create!([{ title: 'test1', level: 0, category: category, creator: admin },
+                      { title: 'test2', level: 1, category: category, creator: admin },
+                      { title: 'test3', level: 2, category: category, creator: admin }])
 
 tests.each do |test|
   Question.create!([{ body: 'question1', test: test },

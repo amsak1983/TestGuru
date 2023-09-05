@@ -1,14 +1,15 @@
 <h1><%= link_to 'TestGuru', root_path %></h1>
 
- <%= flash_message(:p , :notice, 'flash notice') %>
+ <%= flash_message(:notice) %>
+ <%= flash_message(:alert) %>
 
- <% if logged_in? %>
-   <p class="nav user">Welcome, <b><%= current_user.name %></b> Guru
-     <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+ <% if user_signed_in? %>
+   <p class="nav user">Welcome, <b><%= current_user.username %></b> Guru
+     <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
    </p>
  <% else %>
    <p class="nav user">
-     <%= link_to 'Log in', login_path %> |
-     <%= link_to 'Sign up', signup_path %>
+     <%= link_to 'Log in', new_user_session_path %> |
+     <%= link_to 'Sign up', new_user_registration_path %>
    </p>
 <% end %>

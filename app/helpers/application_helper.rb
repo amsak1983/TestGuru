@@ -9,9 +9,9 @@ module ApplicationHelper
     link_to author, repo, target: '_blank', rel: 'nofollow noopener'
   end
 
-  def flash_message(content_tag, argument, class_tag)
+  def flash_message(argument)
     return unless flash[argument].present?
 
-    content_tag content_tag, flash[argument], class: class_tag
+    content_tag :p, flash[argument], class: "flash #{argument}"
   end
 end
