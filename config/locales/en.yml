@@ -87,4 +87,3 @@ en:
   test_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
-      

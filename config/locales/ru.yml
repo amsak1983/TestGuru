@@ -88,4 +88,3 @@ ru:
   test_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
-      
