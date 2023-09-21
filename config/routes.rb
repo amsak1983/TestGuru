@@ -5,7 +5,7 @@ Rails.application.routes.draw do
              path_names: { sign_in: :log_in, sign_out: :log_out }
 
   resources :tests, only: :index do
-    get :start, on: :member
+    post :start, on: :member
   end
 
   resources :test_passages, only: %i[show update] do

@@ -1,0 +1,23 @@
+<nav class="navbar navbar-light bg-light ">
+  <div class="container-fluid">
+    <h1><%= link_to 'TestGuru', root_path, class: 'navbar-brand' %></h1>
+
+    <span class="navbar-text">
+      <% if user_signed_in? %>
+        <p class="nav user">Welcome, <b><%= current_user.username %></b> Guru |
+          <% if current_user.is_a?(Admin) %>
+            <%= link_to "Admin Alexey", admin_tests_path, class: 'text-decoration-none' %> |
+          <% end %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' },
+                      class: 'text-decoration-none' %>
+        </p>
+      <% else %>
+        <p class="nav user">
+          <%= link_to 'Log in', new_user_session_path, class: 'text-decoration-none' %> |
+          <%= link_to 'Sign up', new_user_registration_path, class: 'text-decoration-none' %>
+        </p>
+      <% end %>
+    </span>
+
+  </div>
+</nav>

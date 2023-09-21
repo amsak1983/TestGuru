@@ -1,0 +1,13 @@
+<div class="row justify-content-center">
+    <div class="col col-md-6">
+      <% if flash_message(:alert).present? %>
+        <div class="alert alert-warning " role="alert">
+          <%= flash_message(:alert) %>
+        </div>
+      <% elsif flash_message(:notice) %>
+        <div class="alert alert-primary " role="notice">
+          <%= flash_message(:notice) %>
+        </div>
+      <% end %>
+    </div>
+</div>

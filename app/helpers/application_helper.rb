@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def github_url(author, repo)
-    link_to author, repo, target: '_blank', rel: 'nofollow noopener'
+    link_to author, repo, target: '_blank', rel: 'nofollow noopener', class: 'text-decoration-none'
   end
 
   def flash_message(argument)

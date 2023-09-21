@@ -1,22 +1,26 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
-<head>
-  <title>Admin Panel</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-ti-fit=no">
 
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-</head>
+    <title>Admin Alexey</title>
 
-<body>
-<%= render 'admin/nav' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<%= flash_message(:notice) %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
 
-<%= yield %>
+  <body>
+    <%= render 'admin/nav' %>
 
-<%= render 'shared/footer' %>
-</body>
+    <div class="container">
+      <%= render 'shared/flash' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
+
+  </body>
 </html>
