@@ -8,12 +8,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load if %w[development test].include? ENV['RAILS_ENV']
+
 module TestGuru
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-    config.i18n.default_locale = :ru
-    config.time_zone = 'Minsk'
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -22,5 +22,10 @@ module TestGuru
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.i18n.default_locale = :ru
+    config.time_zone = 'Minsk'
+
+    config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end

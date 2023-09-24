@@ -31,7 +31,7 @@ ru:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
-        other: "Обнаружено #{count} ошибки"
+        other: "Обнаружено %{count} ошибки"
 
   test_passages:
     result:
@@ -39,6 +39,14 @@ ru:
     show:
       header: "Прохождение %{title} теста"
       of: "из"
+
+  gist:
+    email: "Почта"
+    url: "Ссылка"
+    question: "Вопрос"
+    success_html: "<p>Gist успешно создан! <a href='%{url}' target='_blank'>Ссылка</a></p>"
+    failure: "Во время сохранения gist произошла ошибка!"
+    description: "Вопросы по тесту %{title} на TestGuru"
 
   tests:
     index:

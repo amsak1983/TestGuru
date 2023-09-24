@@ -3,7 +3,8 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_registration_params, if: :devise_controller?
-
+  before_action :authenticate_user!
+  
   protect_from_forgery with: :exception
 
   def default_url_options

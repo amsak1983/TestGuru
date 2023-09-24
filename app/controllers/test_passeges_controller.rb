@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class TestPassagesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result]
 
   rescue_from NoMethodError, with: :rescue_with_no_method_error

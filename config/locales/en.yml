@@ -39,6 +39,14 @@ en:
       header: "Passing the %{title} test"
       of: "of"
 
+  gist:
+    email: "Email"
+    url: "Url"
+    question: "Question"
+    success_html: "<p>Gist was successfully created! <a href='%{url}' target='_blank'>Link</a></p>"
+    failure: "An error occurred while saving gist!"
+    description: "A question about %{title} from TestGuru"
+
   tests:
     index:
       header: "Tricky Tests"

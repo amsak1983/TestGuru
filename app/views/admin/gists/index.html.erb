@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <div class="col col-md-10">
+    <h1>Gists</h1>
+
+    <table class="table">
+      <thead class="thead-light">
+      <tr>
+        <th><%= t('gist.email') %></th>
+        <th><%= t('gist.question') %></th>
+        <th><%= t('gist.url') %></th>
+      </tr>
+      </thead>
+
+      <tbody class="thead-light">
+        <%= render @gists %>
+      </tbody>
+    </table>
+  </div>
+</div>
