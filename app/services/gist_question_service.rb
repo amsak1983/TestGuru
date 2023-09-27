@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 class GistQuestionService
-  def initialize(question, client = default_client)
-    @question = question
-    @test = @question.test
-    @client = client
-  end
-
   Url = Struct.new(:url) do
     def success?
       url.present?
     end
+  end
+  
+  def initialize(question, client = default_client)
+    @question = question
+    @test = @question.test
+    @client = client
   end
 
   def call
@@ -37,7 +37,7 @@ class GistQuestionService
   end
 
   def default_client
-    Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
+    Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
   end
 
   def gist_content
