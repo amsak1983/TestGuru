@@ -8,7 +8,11 @@
 
     <table class="table">
       <tr>
-        <th><%= t('.title') %></th>
+        <th class="sort-by-title pointer">
+          <%= t('.title') %>
+          <%= octicon 'arrow-up', class: 'text-primary hide' %>
+          <%= octicon 'arrow-down', class: 'text-primary hide' %>
+        </th>
         <th><%= t('.level') %></th>
         <th><%= t('.count') %></th>
         <th colspan="4"><%= t('.actions') %></th>
