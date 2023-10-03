@@ -80,7 +80,7 @@ ru:
       form_inline:
         submit: 'OK'
 
-    questions:ssssss
+    questions:
       edit:
         header: "Изменить вопрос теста %{title}"
       show:
