@@ -76,6 +76,8 @@ en:
         category_id: "CategoryID"
         creator_id: "CreatorID"
         questions: "Questions"
+      form_inline:
+        submit: 'OK'
 
     questions:
       edit:

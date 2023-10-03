@@ -77,8 +77,10 @@ ru:
         category_id: "Категория"
         creator_id: "Создатель"
         questions: "Вопросы"
+      form_inline:
+        submit: 'OK'
 
-    questions:
+    questions:ssssss
       edit:
         header: "Изменить вопрос теста %{title}"
       show:

@@ -1,10 +1,11 @@
 <nav class="navbar nav-light bg-primary">
   <div class="container-fluid">
     <%= link_to 'TestGuru', root_path, class: 'navbar-brand text-white' %>
+
     <span class="navbar-text text-white">
       Welcome, <b class="nav-admin user-email"><%= current_user.email %></b> Guru |
-      <%= link_to 'Admin Alexey', admin_tests_path, class: 'text-decoration-none text-white' %> |
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-decoration-none text-white' %>
+      <%= link_to 'Admin Alexey', admin_tests_path, class: 'text-decoration-none text-white me-2 ms-2' %> |
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-decoration-none text-white ms-2' %>
     </span>
   </div>
 </nav>
