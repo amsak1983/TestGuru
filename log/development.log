@@ -1101,3 +1101,216 @@ puma (5.6.5) lib/puma/server.rb:443:in `process_client'
 puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
   [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to AddNameAddTyprAttributesToUsers (20230905084511)
+  [1m[35m (6535.2ms)[0m  [1m[35mCREATE DATABASE "test_guru_development" ENCODING = 'unicode'[0m
+  [1m[35m (1705.0ms)[0m  [1m[35mCREATE DATABASE "test_guru_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (15.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "answers" CASCADE[0m
+  [1m[35m (470.0ms)[0m  [1m[35mCREATE TABLE "answers" ("id" bigserial primary key, "body" character varying NOT NULL, "correct" boolean DEFAULT FALSE NOT NULL, "question_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (52.7ms)[0m  [1m[35mCREATE INDEX "index_answers_on_question_id" ON "answers" ("question_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (49.4ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "title" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "feedbacks" CASCADE[0m
+  [1m[35m (75.4ms)[0m  [1m[35mCREATE TABLE "feedbacks" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "message" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "gists" CASCADE[0m
+  [1m[35m (27.1ms)[0m  [1m[35mCREATE TABLE "gists" ("id" bigserial primary key, "url" character varying NOT NULL, "user_id" bigint NOT NULL, "question_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (16.4ms)[0m  [1m[35mCREATE INDEX "index_gists_on_question_id" ON "gists" ("question_id")[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE INDEX "index_gists_on_user_id" ON "gists" ("user_id")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions" CASCADE[0m
+  [1m[35m (28.7ms)[0m  [1m[35mCREATE TABLE "questions" ("id" bigserial primary key, "body" character varying NOT NULL, "test_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE INDEX "index_questions_on_test_id" ON "questions" ("test_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "test_passages" CASCADE[0m
+  [1m[35m (42.2ms)[0m  [1m[35mCREATE TABLE "test_passages" ("id" bigserial primary key, "user_id" bigint NOT NULL, "test_id" bigint NOT NULL, "current_question_id" bigint, "correct_questions" integer DEFAULT 0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE INDEX "index_test_passages_on_current_question_id" ON "test_passages" ("current_question_id")[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE INDEX "index_test_passages_on_test_id" ON "test_passages" ("test_id")[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE INDEX "index_test_passages_on_user_id" ON "test_passages" ("user_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "tests" CASCADE[0m
+  [1m[35m (38.2ms)[0m  [1m[35mCREATE TABLE "tests" ("id" bigserial primary key, "title" character varying NOT NULL, "level" integer DEFAULT 0 NOT NULL, "category_id" bigint NOT NULL, "creator_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE INDEX "index_tests_on_category_id" ON "tests" ("category_id")[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE INDEX "index_tests_on_creator_id" ON "tests" ("creator_id")[0m
+  [1m[35m (37.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tests_on_title_and_level" ON "tests" ("title", "level")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (291.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp(6), "last_sign_in_at" timestamp(6), "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp(6), "confirmation_sent_at" timestamp(6), "unconfirmed_email" character varying, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "username" character varying NOT NULL, "type" character varying DEFAULT 'User' NOT NULL)[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (35.2ms)[0m  [1m[35mALTER TABLE "answers" ADD CONSTRAINT "fk_rails_3d5ed4418f"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (41.9ms)[0m  [1m[35mALTER TABLE "gists" ADD CONSTRAINT "fk_rails_6038c85e3c"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (8.4ms)[0m  [1m[35mALTER TABLE "gists" ADD CONSTRAINT "fk_rails_b015781927"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (25.9ms)[0m  [1m[35mALTER TABLE "questions" ADD CONSTRAINT "fk_rails_cb4b358d50"
+FOREIGN KEY ("test_id")
+  REFERENCES "tests" ("id")
+[0m
+  [1m[35m (8.3ms)[0m  [1m[35mALTER TABLE "test_passages" ADD CONSTRAINT "fk_rails_1c4bb70cb0"
+FOREIGN KEY ("current_question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (23.4ms)[0m  [1m[35mALTER TABLE "test_passages" ADD CONSTRAINT "fk_rails_57c9aa48e7"
+FOREIGN KEY ("test_id")
+  REFERENCES "tests" ("id")
+[0m
+  [1m[35m (7.6ms)[0m  [1m[35mALTER TABLE "test_passages" ADD CONSTRAINT "fk_rails_11c1f136b6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (17.7ms)[0m  [1m[35mALTER TABLE "tests" ADD CONSTRAINT "fk_rails_cda342dc0a"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (31.7ms)[0m  [1m[35mALTER TABLE "tests" ADD CONSTRAINT "fk_rails_376d168989"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (30.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231015155754)[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230724113000),
+(20230724124209),
+(20230724124848),
+(20230724125307),
+(20230726164202),
+(20230809155427),
+(20230809155728),
+(20230823172331),
+(20230825092513),
+(20230825120808),
+(20230829181640),
+(20230904070724),
+(20230905084511),
+(20230924164421),
+(20231015145818);
+
+[0m
+  [1m[35m (84.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-25 17:16:08.746726"], ["updated_at", "2023-10-25 17:16:08.746726"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (12.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7af56ef7bf9058e27c7ebfe1b50193cd43797c45"], ["created_at", "2023-10-25 17:16:08.779027"], ["updated_at", "2023-10-25 17:16:08.779027"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "answers" CASCADE[0m
+  [1m[35m (231.1ms)[0m  [1m[35mCREATE TABLE "answers" ("id" bigserial primary key, "body" character varying NOT NULL, "correct" boolean DEFAULT FALSE NOT NULL, "question_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (28.6ms)[0m  [1m[35mCREATE INDEX "index_answers_on_question_id" ON "answers" ("question_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (85.7ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "title" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "feedbacks" CASCADE[0m
+  [1m[35m (18.3ms)[0m  [1m[35mCREATE TABLE "feedbacks" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "message" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "gists" CASCADE[0m
+  [1m[35m (72.3ms)[0m  [1m[35mCREATE TABLE "gists" ("id" bigserial primary key, "url" character varying NOT NULL, "user_id" bigint NOT NULL, "question_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE INDEX "index_gists_on_question_id" ON "gists" ("question_id")[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE INDEX "index_gists_on_user_id" ON "gists" ("user_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions" CASCADE[0m
+  [1m[35m (49.3ms)[0m  [1m[35mCREATE TABLE "questions" ("id" bigserial primary key, "body" character varying NOT NULL, "test_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE INDEX "index_questions_on_test_id" ON "questions" ("test_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "test_passages" CASCADE[0m
+  [1m[35m (21.3ms)[0m  [1m[35mCREATE TABLE "test_passages" ("id" bigserial primary key, "user_id" bigint NOT NULL, "test_id" bigint NOT NULL, "current_question_id" bigint, "correct_questions" integer DEFAULT 0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE INDEX "index_test_passages_on_current_question_id" ON "test_passages" ("current_question_id")[0m
+  [1m[35m (44.2ms)[0m  [1m[35mCREATE INDEX "index_test_passages_on_test_id" ON "test_passages" ("test_id")[0m
+  [1m[35m (30.9ms)[0m  [1m[35mCREATE INDEX "index_test_passages_on_user_id" ON "test_passages" ("user_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "tests" CASCADE[0m
+  [1m[35m (88.8ms)[0m  [1m[35mCREATE TABLE "tests" ("id" bigserial primary key, "title" character varying NOT NULL, "level" integer DEFAULT 0 NOT NULL, "category_id" bigint NOT NULL, "creator_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE INDEX "index_tests_on_category_id" ON "tests" ("category_id")[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE INDEX "index_tests_on_creator_id" ON "tests" ("creator_id")[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tests_on_title_and_level" ON "tests" ("title", "level")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (30.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp(6), "last_sign_in_at" timestamp(6), "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp(6), "confirmation_sent_at" timestamp(6), "unconfirmed_email" character varying, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "username" character varying NOT NULL, "type" character varying DEFAULT 'User' NOT NULL)[0m
+  [1m[35m (25.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (12.9ms)[0m  [1m[35mALTER TABLE "answers" ADD CONSTRAINT "fk_rails_3d5ed4418f"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (8.0ms)[0m  [1m[35mALTER TABLE "gists" ADD CONSTRAINT "fk_rails_6038c85e3c"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (5.3ms)[0m  [1m[35mALTER TABLE "gists" ADD CONSTRAINT "fk_rails_b015781927"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "questions" ADD CONSTRAINT "fk_rails_cb4b358d50"
+FOREIGN KEY ("test_id")
+  REFERENCES "tests" ("id")
+[0m
+  [1m[35m (36.3ms)[0m  [1m[35mALTER TABLE "test_passages" ADD CONSTRAINT "fk_rails_1c4bb70cb0"
+FOREIGN KEY ("current_question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (31.2ms)[0m  [1m[35mALTER TABLE "test_passages" ADD CONSTRAINT "fk_rails_57c9aa48e7"
+FOREIGN KEY ("test_id")
+  REFERENCES "tests" ("id")
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "test_passages" ADD CONSTRAINT "fk_rails_11c1f136b6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "tests" ADD CONSTRAINT "fk_rails_cda342dc0a"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "tests" ADD CONSTRAINT "fk_rails_376d168989"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (21.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231015155754)[0m
+  [1m[35m (3.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230724113000),
+(20230724124209),
+(20230724124848),
+(20230724125307),
+(20230726164202),
+(20230809155427),
+(20230809155728),
+(20230823172331),
+(20230825092513),
+(20230825120808),
+(20230829181640),
+(20230904070724),
+(20230905084511),
+(20230924164421),
+(20231015145818);
+
+[0m
+  [1m[35m (67.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-25 17:16:10.132695"], ["updated_at", "2023-10-25 17:16:10.132695"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2023-10-25 17:16:10.145023"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7af56ef7bf9058e27c7ebfe1b50193cd43797c45"], ["created_at", "2023-10-25 17:16:10.155487"], ["updated_at", "2023-10-25 17:16:10.155487"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ehanpukin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (40.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ehanpukin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "ehanpukin@gmail.com"], ["created_at", "2023-10-25 17:16:11.081183"], ["updated_at", "2023-10-25 17:16:11.081183"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Bob"], ["last_name", "Cooper"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (24.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "tom@gmail.com"], ["created_at", "2023-10-25 17:16:11.510769"], ["updated_at", "2023-10-25 17:16:11.510769"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Tom"], ["last_name", "Cooper"], ["username", "tomcop"], ["type", "User"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2840732201001533055)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2840732201001533055)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :gists, dependent: :destroy
 
-  validates :email, uniqueness: { case_sensitive: false }, format: URI::MailTo::EMAIL_REGEXP, uniqueness: true
+  validates :email, uniqueness: { case_sensitive: false }, format: URI::MailTo::EMAIL_REGEXP
   validates :username, :email, presence: true
 
   def show_tests(level)

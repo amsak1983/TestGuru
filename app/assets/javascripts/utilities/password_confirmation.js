@@ -11,21 +11,28 @@ function checkPasswords(inputPass, inputConfPass) {
   const pass = inputPass.querySelector('.pass')
   const confPass = inputConfPass.querySelector('.conf-pass')
 
-  confPass.addEventListener('input', () => {
-
-      if (confPass.value == '') {
-          clearClass(confPass)
-          return
-      }
-
-      if (pass.value !== confPass.value) {
-          clearClass(confPass)
-          confPass.classList.add('is-invalid')
-      } else {
-          clearClass(confPass)
-          confPass.classList.add('is-valid')
-      }
+  pass.addEventListener('input', () => {
+      validPass(pass, confPass)
   })
+
+  confPass.addEventListener('input', () => {
+      validPass(pass, confPass)
+  })
+}
+
+function validPass(pass, confPass) {
+  if (confPass.value == '') {
+      clearClass(confPass)
+      return
+  }
+
+  if (pass.value !== confPass.value){
+      clearClass(confPass)
+      confPass.classList.add('is-invalid')
+  } else {
+      clearClass(confPass)
+      confPass.classList.add('is-valid')
+  }
 }
 
 function clearClass(element) {

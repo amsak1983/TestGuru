@@ -35,6 +35,9 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
+      success: 'Success!'
+      fail: "Failed"
+      percentage: "Your pass percentage: "
     show:
       header: "Passing the %{title} test"
       of: "of"
@@ -54,6 +57,11 @@ en:
       level: "Level"
       count: "Count"
       actions: "Actions"
+
+  feedbacks:
+    message: "Message"
+    success: "Message successfully sent"
+    feedback: "feedback"
 
   admin:
     tests:
@@ -76,6 +84,10 @@ en:
         category_id: "CategoryID"
         creator_id: "CreatorID"
         questions: "Questions"
+      update:
+        updated: "Test updated!"
+      destroy:
+        deleted: "Test deleted!"
       form_inline:
         submit: 'OK'
 
@@ -85,6 +97,12 @@ en:
       show:
         header: "Question"
         answers: "Answers"
+      create:
+        success: "Question successfully created!"
+      update:
+        updated: "Question updated!"
+      destroy:
+        deleted: "Question deleted!"
 
     answers:
       show:
@@ -93,6 +111,12 @@ en:
         correct: "Correct"
       edit:
         header: "Editing Answer"
+      create:
+        success: "Answer successfully created!"
+      update:
+        updated: "Answer updated!"
+      destroy:
+        deleted: "Answer deleted!"
 
   test_mailer:
     completed_test:

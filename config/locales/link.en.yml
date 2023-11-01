@@ -9,3 +9,8 @@ en:
   new_answer: "New Answer"
   start: "Start"
   all_tests: "All Tests"
+  send: "Send"
+  login: "Log in"
+  logout: "Log out"
+  signup: "Sign up"
+  admin_panel: "Admin Alexey"

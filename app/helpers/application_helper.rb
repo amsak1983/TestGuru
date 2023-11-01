@@ -12,6 +12,6 @@ module ApplicationHelper
   def flash_message(argument)
     return unless flash[argument].present?
 
-    content_tag :p, flash[argument], class: "flash #{argument}"
+    content_tag :div, flash[argument], class: "flash #{argument}"
   end
 end
