@@ -35,11 +35,11 @@ gem 'jbuilder'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-#gem "bcrypt", "~> 3.1.7"
+# gem "bcrypt", "~> 3.1.7"
 
 gem 'devise', '~> 4.0'
 
-gem "octokit", "~> 5.0"
+gem 'octokit', '~> 5.0'
 
 gem 'rails-i18n', '~> 7.0.0'
 
@@ -60,7 +60,7 @@ gem 'bootstrap', '~> 5.2.0'
 gem 'rails-ujs', '~> 0.1.0'
 
 # Use Sass to process CSS
-gem "sassc-rails"
+gem 'sassc-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -83,7 +83,7 @@ group :development do
   gem 'spring'
 
   gem 'letter_opener'
-end  
+end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

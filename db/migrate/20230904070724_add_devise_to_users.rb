@@ -4,7 +4,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.1]
   def self.up
     change_table :users do |t|
       ## Database authenticatable
-      t.string :encrypted_password, null: false, default: ""
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
@@ -45,9 +45,9 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.1]
 
   def self.down
     remove_columns(:users, :encrypted_password, :reset_password_token, :reset_password_sent_at,
-                  :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at,
-                  :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at,
-                  :confirmation_sent_at, :unconfirmed_email)
+                   :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at,
+                   :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at,
+                   :confirmation_sent_at, :unconfirmed_email)
 
     add_column(:users, :password_digest, :string)
     remove_index(:users, :email)

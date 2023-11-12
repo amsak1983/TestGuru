@@ -3,10 +3,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :registerable,
-         :recoverable, 
-         :rememberable, 
+         :recoverable,
+         :rememberable,
          :validatable
 
   has_many :created_tests, class_name: 'Test', foreign_key: :creator_id, dependent: :destroy
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :username, :email, presence: true
 
   def show_tests(level)
-    tests.where(level: level)
+    tests.where(level:)
   end
 
   def test_passage(test)
