@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FeedbacksMailer < ApplicationMailer
-  default to: %("TestGuru" <testguruproj@gmail.com>)
+  default to: %("TestGuru" <admin@testguru.com>)
 
   def send_message(feedbacks)
     @name = feedbacks.name
