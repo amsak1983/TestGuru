@@ -1343,3 +1343,107 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 47787ms (Views: 46688.5ms | ActiveRecord: 1013.3ms | Allocations: 231361)
 
 
+Started GET "/gurus/sign_up" for 127.0.0.1 at 2023-11-20 18:33:09 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (78.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/gurus/sign_up" for 127.0.0.1 at 2023-11-20 18:34:07 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 23.4ms | Allocations: 260)
+  Rendered devise/shared/_error_messages.html.erb (Duration: 19.3ms | Allocations: 260)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 604.1ms | Allocations: 4044)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 604.1ms | Allocations: 4044)
+  Rendered shared/_nav.html.erb (Duration: 28.5ms | Allocations: 683)
+  Rendered shared/_nav.html.erb (Duration: 24.8ms | Allocations: 683)
+  Rendered shared/_flash.html.erb (Duration: 4.8ms | Allocations: 234)
+  Rendered shared/_flash.html.erb (Duration: 2.2ms | Allocations: 234)
+  Rendered shared/_footer.html.erb (Duration: 24.1ms | Allocations: 295)
+  Rendered shared/_footer.html.erb (Duration: 24.1ms | Allocations: 295)
+  Rendered layout layouts/application.html.erb (Duration: 5815.7ms | Allocations: 51419)
+  Rendered layout layouts/application.html.erb (Duration: 5816.4ms | Allocations: 51419)
+Completed 200 OK in 10091ms (Views: 5938.6ms | ActiveRecord: 386.7ms | Allocations: 99635)
+
+
+Completed 200 OK in 9887ms (Views: 5934.5ms | ActiveRecord: 388.2ms | Allocations: 99629)
+
+
+Started POST "/gurus" for 127.0.0.1 at 2023-11-20 18:35:38 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"alex", "last_name"=>"kas", "username"=>"vargin", "email"=>"amsak@yandex.by", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Зарегистрироваться"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (328.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (53.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Create (206.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2023-11-20 15:35:41.588697"], ["updated_at", "2023-11-20 15:35:41.588697"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "alex"], ["last_name", "kas"], ["username", "vargin"], ["type", "User"]]
+  [1m[36mTRANSACTION (139.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 2768ms (ActiveRecord: 834.3ms | Allocations: 12952)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-20 18:35:42 +0300
+Processing by TestsController#index as HTML
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tests/index.html.erb within layouts/application
+  [1m[36mTest Load (85.6ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/tests/index.html.erb:18
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 31)
+  Rendered tests/index.html.erb within layouts/application (Duration: 147.1ms | Allocations: 1520)
+  Rendered shared/_nav.html.erb (Duration: 1.7ms | Allocations: 339)
+  Rendered shared/_flash.html.erb (Duration: 0.4ms | Allocations: 103)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 93)
+  Rendered layout layouts/application.html.erb (Duration: 186.0ms | Allocations: 12260)
+Completed 200 OK in 405ms (Views: 108.5ms | ActiveRecord: 98.3ms | Allocations: 18380)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-20 18:36:07 +0300
+Processing by TestsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tests/index.html.erb within layouts/application
+  [1m[36mTest Load (0.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/tests/index.html.erb:18
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered tests/index.html.erb within layouts/application (Duration: 78.2ms | Allocations: 742)
+  Rendered shared/_nav.html.erb (Duration: 5.2ms | Allocations: 259)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 66)
+  Rendered layout layouts/application.html.erb (Duration: 149.2ms | Allocations: 11100)
+Completed 200 OK in 166ms (Views: 154.2ms | ActiveRecord: 2.1ms | Allocations: 12870)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-20 18:36:09 +0300
+Processing by TestsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tests/index.html.erb within layouts/application
+  [1m[36mTest Load (2.7ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/tests/index.html.erb:18
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered tests/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 765)
+  Rendered shared/_nav.html.erb (Duration: 3.2ms | Allocations: 259)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 66)
+  Rendered layout layouts/application.html.erb (Duration: 79.4ms | Allocations: 11126)
+Completed 200 OK in 96ms (Views: 81.6ms | ActiveRecord: 3.1ms | Allocations: 12783)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-20 18:36:10 +0300
+Processing by TestsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tests/index.html.erb within layouts/application
+  [1m[36mTest Load (1.2ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/tests/index.html.erb:18
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered tests/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 741)
+  Rendered shared/_nav.html.erb (Duration: 6.4ms | Allocations: 259)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 66)
+  Rendered layout layouts/application.html.erb (Duration: 171.3ms | Allocations: 11370)
+Completed 200 OK in 183ms (Views: 172.3ms | ActiveRecord: 2.6ms | Allocations: 12991)
+
+

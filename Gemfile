@@ -59,6 +59,8 @@ gem 'bootstrap', '~> 5.2.0'
 
 gem 'rails-ujs', '~> 0.1.0'
 
+gem 'faraday'
+
 # Use Sass to process CSS
 gem 'sassc-rails'
 
