@@ -1314,3 +1314,32 @@ FOREIGN KEY ("creator_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2840732201001533055)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-11-18 15:32:37 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (78.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+Zeitwerk::NameError (expected file /home/alexey/ruby/TestGuru/app/helpers/feedback_helper.rb to define constant FeedbackHelper, but didn't
+
+      raise Zeitwerk::NameError.new(msg, cref.last)
+      ^^^^^):
+  
+app/controllers/application_controller.rb:3:in `<main>'
+app/controllers/tests_controller.rb:3:in `<main>'
+Started GET "/" for 127.0.0.1 at 2023-11-20 18:04:52 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (32.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TestsController#index as HTML
+Completed 401 Unauthorized in 3266ms (ActiveRecord: 0.0ms | Allocations: 34680)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2023-11-20 18:05:03 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 31.7ms | Allocations: 544)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 128.5ms | Allocations: 4014)
+  Rendered shared/_nav.html.erb (Duration: 181.2ms | Allocations: 636)
+  Rendered shared/_flash.html.erb (Duration: 18.5ms | Allocations: 285)
+  Rendered shared/_footer.html.erb (Duration: 67.3ms | Allocations: 294)
+  Rendered layout layouts/application.html.erb (Duration: 46612.5ms | Allocations: 215052)
+Completed 200 OK in 47787ms (Views: 46688.5ms | ActiveRecord: 1013.3ms | Allocations: 231361)
+
+
