@@ -61,6 +61,8 @@ gem 'rails-ujs', '~> 0.1.0'
 
 gem 'faraday'
 
+gem 'faraday-retry'
+
 # Use Sass to process CSS
 gem 'sassc-rails'
 
