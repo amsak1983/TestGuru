@@ -24,3 +24,5 @@ production:
   <<: *default
   database: test_guru
   url: <%= ENV['DATABASE_URL'] %>
+  username: alexey
+  password: <%= ENV['TEST_GURU_DATABASE_PASSWORD'] %>
