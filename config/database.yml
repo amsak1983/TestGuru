@@ -8,6 +8,14 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   encoding: unicode
+  username: <%= ENV['AWS_POSTGRES_USER'] %>
+  password: <%= ENV['AWS_POSTGRES_PASSWORD'] %>
+  host: <%= ENV['AWS_POSTGRES_HOST'] %>
+
+
+  
+ AWS_POSTGRES_PASSWORD
+ 
 
 development:
   <<: *default
@@ -24,5 +32,3 @@ production:
   <<: *default
   database: test_guru
   url: <%= ENV['DATABASE_URL'] %>
-  username: alexey
-  password: <%= ENV['TEST_GURU_DATABASE_PASSWORD'] %>
