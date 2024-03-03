@@ -11,8 +11,7 @@ gem 'rails', '~> 7.0.5'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
@@ -36,11 +35,11 @@ gem 'jbuilder'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-#gem "bcrypt", "~> 3.1.7"
+# gem "bcrypt", "~> 3.1.7"
 
 gem 'devise', '~> 4.0'
 
-gem "octokit", "~> 5.0"
+gem 'octokit', '~> 5.0'
 
 gem 'rails-i18n', '~> 7.0.0'
 
@@ -60,8 +59,12 @@ gem 'bootstrap', '~> 5.2.0'
 
 gem 'rails-ujs', '~> 0.1.0'
 
+gem 'faraday'
+
+gem 'faraday-retry'
+
 # Use Sass to process CSS
-gem "sassc-rails"
+gem 'sassc-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -70,7 +73,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', groups: %i[development test]
 end
 
 group :development do
@@ -84,7 +87,7 @@ group :development do
   gem 'spring'
 
   gem 'letter_opener'
-end  
+end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

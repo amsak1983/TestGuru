@@ -6,7 +6,7 @@ class GistQuestionService
       url.present?
     end
   end
-  
+
   def initialize(question, client = default_client)
     @question = question
     @test = @question.test

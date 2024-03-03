@@ -2,14 +2,14 @@
 
 <% if @test_passage.successful_passage? %>
   <p>
-    Your pass percentage: <strong style="color:#0ED002" ><%= @test_passage.percentage_completion %> %</strong><br>
-    <strong style="color:#0ED002">Success!</strong>
+    <%= t('test_passages.result.percentage') %> <strong style="color:#0ED002" ><%= @test_passage.percentage_completion %> %</strong><br>
+    <strong style="color:#0ED002"><%= t('test_passages.result.success') %></strong>
   </p>
 <% else %>
   <p>
-    Your pass percentage: <strong style="color:#FC0221"><%= @test_passage.percentage_completion %> %</strong><br>
-    <strong style="color:#FC0221" >Failed :(</strong>
+    <%= t('test_passages.result.percentage') %> <strong style="color:#FC0221"><%= @test_passage.percentage_completion %> %</strong><br>
+    <strong style="color:#FC0221" ><%= t('test_passages.result.fail') %></strong>
   </p>
 <% end %>
 
-<%= link_to t('all_tests'), tests_path %>
+<%= link_to t('all_tests'), tests_path, class: "text-decoration-none" %>
