@@ -9,7 +9,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 admin = Admin.create!(first_name: 'Bob', last_name: 'Cooper', username: 'bobcop', email: 'amsak@yandex.by', type: 'Admin',
-                      password: 'zse4321qaW@')
+                      password: 'zse4321')
 user = User.create!(first_name: 'Tom', last_name: 'Cooper', username: 'tomcop', email: 'tom@gmail.com', type: 'User',
                     password: 'testguru')
 
@@ -23,7 +23,7 @@ tests.each do |test|
   Question.create!([{ body: 'question1', test: },
                     { body: 'question2', test: },
                     { body: 'question3', test: }])
-  TestPassage.create!(user:, test:, current_question: test.questions.first, correct_questions: 0)
+  TestPassage.create!(user: user, test: test, current_question: test.questions.first, correct_questions: 0)
 end
 
 Question.all.each do |question|
