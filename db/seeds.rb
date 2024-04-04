@@ -8,16 +8,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-admin = Admin.create!(first_name: 'Bob', last_name: 'Cooper', username: 'bobcop', email: 'amsak@yandex.by', type: 'Admin',
+admin = Admin.create!(first_name: 'Bob', last_name: 'Cooper', username: 'bobcop', email: 'ams@yandex.by', type: 'Admin',
                       password: 'zse4321')
-user = User.create!(first_name: 'Tom', last_name: 'Cooper', username: 'tomcop', email: 'tom@gmail.com', type: 'User',
+user = User.create!(first_name: 'Tom', last_name: 'Cooper', username: 'tomcop', email: 'tom09@gmail.com', type: 'User',
                     password: 'testguru')
 
 category = Category.create!(title: 'category1')
 
-tests = Test.create!([{ title: 'test1', level: 0, category:, creator: admin },
-                      { title: 'test2', level: 1, category:, creator: admin },
-                      { title: 'test3', level: 2, category:, creator: admin }])
+tests = Test.create!([{ title: 'test1', level: 0, category: category, creator: admin },
+                      { title: 'test2', level: 1, category: category, creator: admin },
+                      { title: 'test3', level: 2, category: category, creator: admin }])
 
 tests.each do |test|
   Question.create!([{ body: 'question1', test: },
