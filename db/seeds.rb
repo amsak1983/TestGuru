@@ -7,14 +7,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+Admin.destroy_all
 admin = Admin.create!(first_name: 'Bob', last_name: 'Cooper', username: 'bobcop', email: 'ams@yandex.by', type: 'Admin',
                       password: 'zse4321')
-user = User.create!(first_name: 'Tom', last_name: 'Cooper', username: 'tomcop', email: 'tom09@gmail.com', type: 'User',
-                    password: 'testguru')
 
-category = Category.create!(title: 'category1')
+category = Category.find_or_create_by!(title: 'category1')
 
+Test.destroy_all
 tests = Test.create!([{ title: 'test1', level: 0, category: category, creator: admin },
                       { title: 'test2', level: 1, category: category, creator: admin },
                       { title: 'test3', level: 2, category: category, creator: admin }])
@@ -23,7 +22,6 @@ tests.each do |test|
   Question.create!([{ body: 'question1', test: },
                     { body: 'question2', test: },
                     { body: 'question3', test: }])
-  TestPassage.create!(user: user, test: test, current_question: test.questions.first, correct_questions: 0)
 end
 
 Question.all.each do |question|

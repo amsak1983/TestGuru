@@ -8752,3 +8752,794 @@ Migrating to CreateFeedbacks (20231015145818)
   ↳ app/models/answer.rb:14:in `limit_answers'
   [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 9], ["created_at", "2024-04-06 12:50:12.858027"], ["updated_at", "2024-04-06 12:50:12.858027"]]
   [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (15.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for 127.0.0.1 at 2024-04-18 12:12:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (417.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TestsController#index as HTML
+Completed 401 Unauthorized in 4850ms (ActiveRecord: 0.0ms | Allocations: 33961)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2024-04-18 12:13:13 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 26.1ms | Allocations: 544)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 252.1ms | Allocations: 3487)
+  Rendered shared/_nav.html.erb (Duration: 78.6ms | Allocations: 634)
+  Rendered shared/_flash.html.erb (Duration: 24.1ms | Allocations: 285)
+  Rendered shared/_footer.html.erb (Duration: 59.0ms | Allocations: 294)
+  Rendered layout layouts/application.html.erb (Duration: 7698.9ms | Allocations: 50770)
+Completed 200 OK in 9024ms (Views: 8050.8ms | ActiveRecord: 686.3ms | Allocations: 66791)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-04-18 12:14:17 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amsak@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (189.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Completed 401 Unauthorized in 942ms (ActiveRecord: 189.5ms | Allocations: 3342)
+
+
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amsak@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 89)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1142)
+  Rendered shared/_nav.html.erb (Duration: 1.3ms | Allocations: 217)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 73)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 106.0ms | Allocations: 11640)
+Completed 200 OK in 1526ms (Views: 111.4ms | ActiveRecord: 0.0ms | Allocations: 13023)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-04-18 12:15:13 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ams@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (23.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://127.0.0.1:3000/admin/tests
+Completed 303 See Other in 2166ms (ActiveRecord: 23.1ms | Allocations: 13280)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 12:15:16 +0300
+  
+TypeError (Admin is not a module
+/home/alexey/ruby/TestGuru/app/models/admin.rb:3: previous definition of Admin was here):
+  
+app/controllers/admin/tests_controller.rb:3:in `<main>'
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 12:20:13 +0300
+  
+TypeError (Admin is not a module
+/home/alexey/ruby/TestGuru/app/models/admin.rb:3: previous definition of Admin was here):
+  
+app/controllers/admin/base_controller.rb:3:in `<main>'
+app/controllers/admin/tests_controller.rb:4:in `<class:Admin>'
+app/controllers/admin/tests_controller.rb:3:in `<main>'
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 12:22:53 +0300
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (59.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 34.4ms | Allocations: 236)
+  [1m[36mTest Load (160.6ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 144.6ms | Allocations: 789)
+  [1m[36mQuestion Count (417.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 1]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 1.7ms | Allocations: 480)
+  [1m[36mQuestion Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 2]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 1.9ms | Allocations: 447)
+  [1m[36mQuestion Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 3]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 1002.4ms | Allocations: 9718)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 1334.9ms | Allocations: 15491)
+  Rendered admin/_nav.html.erb (Duration: 81.0ms | Allocations: 586)
+  Rendered shared/_flash.html.erb (Duration: 0.4ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 36.0ms | Allocations: 93)
+  Rendered layout layouts/admin.html.erb (Duration: 2344.0ms | Allocations: 27043)
+Completed 200 OK in 5046ms (Views: 1738.0ms | ActiveRecord: 2186.8ms | Allocations: 43635)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 12:30:35 +0300
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mTest Load (1.8ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 18.6ms | Allocations: 452)
+  [1m[36mQuestion Count (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 1]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 2.9ms | Allocations: 447)
+  [1m[36mQuestion Count (19.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 2]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 2.9ms | Allocations: 447)
+  [1m[36mQuestion Count (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 3]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 119.4ms | Allocations: 4692)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 203.4ms | Allocations: 5645)
+  Rendered admin/_nav.html.erb (Duration: 1.7ms | Allocations: 342)
+  Rendered shared/_flash.html.erb (Duration: 0.4ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 66)
+  Rendered layout layouts/admin.html.erb (Duration: 345.8ms | Allocations: 16086)
+Completed 200 OK in 769ms (Views: 327.8ms | ActiveRecord: 160.1ms | Allocations: 20879)
+
+
+Started DELETE "/gurus/log_out" for 127.0.0.1 at 2024-04-18 12:30:41 +0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 301ms (ActiveRecord: 0.9ms | Allocations: 3543)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-18 12:30:42 +0300
+Processing by TestsController#index as HTML
+Completed 401 Unauthorized in 18ms (ActiveRecord: 0.0ms | Allocations: 529)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2024-04-18 12:30:42 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 30.3ms | Allocations: 1270)
+  Rendered shared/_nav.html.erb (Duration: 21.5ms | Allocations: 281)
+  Rendered shared/_flash.html.erb (Duration: 1.5ms | Allocations: 96)
+  Rendered shared/_footer.html.erb (Duration: 1.6ms | Allocations: 93)
+  Rendered layout layouts/application.html.erb (Duration: 187.0ms | Allocations: 12155)
+Completed 200 OK in 235ms (Views: 215.7ms | ActiveRecord: 0.0ms | Allocations: 13317)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-04-18 12:31:10 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ams@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://127.0.0.1:3000/admin/tests
+Completed 303 See Other in 1297ms (ActiveRecord: 1.1ms | Allocations: 2333)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 12:31:12 +0300
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mTest Load (0.9ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 10.6ms | Allocations: 463)
+  [1m[36mQuestion Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 1]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 7.0ms | Allocations: 447)
+  [1m[36mQuestion Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 2]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 3.7ms | Allocations: 447)
+  [1m[36mQuestion Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 3]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 78.6ms | Allocations: 4740)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 102.1ms | Allocations: 5692)
+  Rendered admin/_nav.html.erb (Duration: 1.5ms | Allocations: 346)
+  Rendered shared/_flash.html.erb (Duration: 0.4ms | Allocations: 86)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 66)
+  Rendered layout layouts/admin.html.erb (Duration: 183.6ms | Allocations: 16198)
+Completed 200 OK in 266ms (Views: 195.7ms | ActiveRecord: 14.9ms | Allocations: 17844)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (8.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (15.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (44.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (28.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (48.8ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mQuestion Load (38.9ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 1]]
+  [1m[36mAnswer Load (66.8ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  [1m[36mAnswer Destroy (14.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 1]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 2]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 3]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 4]]
+  [1m[36mGist Load (102.2ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 1]]
+  [1m[36mQuestion Destroy (120.7ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 1]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 2]]
+  [1m[36mAnswer Destroy (6.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 5]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 6]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 7]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 8]]
+  [1m[36mGist Load (0.4ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 2]]
+  [1m[36mQuestion Destroy (48.3ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (1.2ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 1]]
+  [1m[36mAnswer Load (0.7ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  [1m[36mAnswer Destroy (0.7ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 1]]
+  [1m[36mAnswer Destroy (0.7ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 2]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 3]]
+  [1m[36mAnswer Destroy (0.6ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 4]]
+  [1m[36mGist Load (0.9ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (0.7ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (1.1ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 1]]
+  [1m[36mAnswer Load (0.6ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  [1m[36mAnswer Destroy (0.8ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 1]]
+  [1m[36mAnswer Destroy (0.6ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 2]]
+  [1m[36mAnswer Destroy (1.1ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 3]]
+  [1m[36mAnswer Destroy (0.6ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 4]]
+  [1m[36mGist Load (0.6ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 1]]
+  [1m[36mTestPassage Load (0.7ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 1]]
+  [1m[36mQuestion Destroy (12.6ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 1]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 2]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 5]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 6]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 7]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 8]]
+  [1m[36mGist Load (0.4ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 2]]
+  [1m[36mTestPassage Load (0.8ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 2]]
+  [1m[36mTestPassage Destroy (0.6ms)[0m  [1m[31mDELETE FROM "test_passages" WHERE "test_passages"."id" = $1[0m  [["id", 1]]
+  [1m[36mQuestion Destroy (1.1ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 2]]
+  [1m[36mAnswer Load (0.6ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 3]]
+  [1m[36mAnswer Destroy (0.6ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 9]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 10]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 11]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 12]]
+  [1m[36mGist Load (0.4ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 3]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 3]]
+  [1m[36mQuestion Destroy (11.1ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 3]]
+  [1m[36mTestPassage Load (0.5ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 1]]
+  [1m[36mTest Destroy (14.4ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 1]]
+  [1m[36mQuestion Load (1.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 2]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 4]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 13]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 14]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 15]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 16]]
+  [1m[36mGist Load (0.6ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 4]]
+  [1m[36mTestPassage Load (0.6ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 4]]
+  [1m[36mQuestion Destroy (1.0ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 4]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 5]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 17]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 18]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 19]]
+  [1m[36mAnswer Destroy (9.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 20]]
+  [1m[36mGist Load (0.4ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 5]]
+  [1m[36mTestPassage Load (0.5ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 5]]
+  [1m[36mTestPassage Destroy (0.5ms)[0m  [1m[31mDELETE FROM "test_passages" WHERE "test_passages"."id" = $1[0m  [["id", 2]]
+  [1m[36mQuestion Destroy (1.0ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 5]]
+  [1m[36mAnswer Load (3.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 6]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 21]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 22]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 23]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 24]]
+  [1m[36mGist Load (0.5ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 6]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 6]]
+  [1m[36mQuestion Destroy (8.3ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 6]]
+  [1m[36mTestPassage Load (0.5ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 2]]
+  [1m[36mTest Destroy (1.3ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 2]]
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 3]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 7]]
+  [1m[36mAnswer Destroy (1.9ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 25]]
+  [1m[36mAnswer Destroy (0.9ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 26]]
+  [1m[36mAnswer Destroy (0.9ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 27]]
+  [1m[36mAnswer Destroy (0.7ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 28]]
+  [1m[36mGist Load (0.4ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 7]]
+  [1m[36mTestPassage Load (0.5ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 7]]
+  [1m[36mQuestion Destroy (0.9ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 7]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 8]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 29]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 30]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 31]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 32]]
+  [1m[36mGist Load (0.6ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 8]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 8]]
+  [1m[36mTestPassage Destroy (0.6ms)[0m  [1m[31mDELETE FROM "test_passages" WHERE "test_passages"."id" = $1[0m  [["id", 3]]
+  [1m[36mQuestion Destroy (0.8ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 8]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 9]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 33]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 34]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 35]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 36]]
+  [1m[36mGist Load (0.5ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 9]]
+  [1m[36mTestPassage Load (0.5ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 9]]
+  [1m[36mQuestion Destroy (0.8ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 9]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 3]]
+  [1m[36mTest Destroy (1.0ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 3]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mGist Load (0.6ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mAdmin Destroy (1.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (27.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (30.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "ams@yandex.by"], ["created_at", "2024-04-18 10:12:38.422560"], ["updated_at", "2024-04-18 10:12:38.422560"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Bob"], ["last_name", "Cooper"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (16.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."title" = $1 ORDER BY "categories"."title" ASC LIMIT $2[0m  [["title", "category1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (1.2ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 3]]
+  [1m[36mTestPassage Load (1.1ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mGist Load (1.0ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mAdmin Destroy (2.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (52.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "ams@yandex.by"], ["created_at", "2024-04-18 10:16:55.247517"], ["updated_at", "2024-04-18 10:16:55.247517"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Bob"], ["last_name", "Cooper"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (19.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."title" = $1 ORDER BY "categories"."title" ASC LIMIT $2[0m  [["title", "category1"], ["LIMIT", 1]]
+  [1m[36mTest Load (0.6ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (8.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test1"], ["level", 0], ["LIMIT", 1]]
+  [1m[36mTest Create (23.9ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test1"], ["level", 0], ["category_id", 1], ["creator_id", 4], ["created_at", "2024-04-18 10:16:55.353887"], ["updated_at", "2024-04-18 10:16:55.353887"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test2"], ["level", 1], ["LIMIT", 1]]
+  [1m[36mTest Create (0.7ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test2"], ["level", 1], ["category_id", 1], ["creator_id", 4], ["created_at", "2024-04-18 10:16:55.391302"], ["updated_at", "2024-04-18 10:16:55.391302"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test3"], ["level", 2], ["LIMIT", 1]]
+  [1m[36mTest Create (1.1ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test3"], ["level", 2], ["category_id", 1], ["creator_id", 4], ["created_at", "2024-04-18 10:16:55.407776"], ["updated_at", "2024-04-18 10:16:55.407776"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (17.1ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question1"], ["test_id", 4], ["created_at", "2024-04-18 10:16:55.447279"], ["updated_at", "2024-04-18 10:16:55.447279"]]
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question2"], ["test_id", 4], ["created_at", "2024-04-18 10:16:55.486226"], ["updated_at", "2024-04-18 10:16:55.486226"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.8ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question3"], ["test_id", 4], ["created_at", "2024-04-18 10:16:55.496229"], ["updated_at", "2024-04-18 10:16:55.496229"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.8ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question1"], ["test_id", 5], ["created_at", "2024-04-18 10:16:55.507214"], ["updated_at", "2024-04-18 10:16:55.507214"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.9ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question2"], ["test_id", 5], ["created_at", "2024-04-18 10:16:55.521871"], ["updated_at", "2024-04-18 10:16:55.521871"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.9ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question3"], ["test_id", 5], ["created_at", "2024-04-18 10:16:55.534954"], ["updated_at", "2024-04-18 10:16:55.534954"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question1"], ["test_id", 6], ["created_at", "2024-04-18 10:16:55.548049"], ["updated_at", "2024-04-18 10:16:55.548049"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question2"], ["test_id", 6], ["created_at", "2024-04-18 10:16:55.556981"], ["updated_at", "2024-04-18 10:16:55.556981"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.8ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question3"], ["test_id", 6], ["created_at", "2024-04-18 10:16:55.565901"], ["updated_at", "2024-04-18 10:16:55.565901"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (58.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 10]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (1.2ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 10], ["created_at", "2024-04-18 10:16:55.683743"], ["updated_at", "2024-04-18 10:16:55.683743"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 10]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (1.9ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 10], ["created_at", "2024-04-18 10:16:55.703491"], ["updated_at", "2024-04-18 10:16:55.703491"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 10]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.9ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 10], ["created_at", "2024-04-18 10:16:55.723784"], ["updated_at", "2024-04-18 10:16:55.723784"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (5.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 10]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.9ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 10], ["created_at", "2024-04-18 10:16:55.761373"], ["updated_at", "2024-04-18 10:16:55.761373"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (5.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 11]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 11], ["created_at", "2024-04-18 10:16:55.802997"], ["updated_at", "2024-04-18 10:16:55.802997"]]
+  [1m[36mTRANSACTION (106.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 11]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (1.0ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 11], ["created_at", "2024-04-18 10:16:55.942770"], ["updated_at", "2024-04-18 10:16:55.942770"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 11]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 11], ["created_at", "2024-04-18 10:16:55.955874"], ["updated_at", "2024-04-18 10:16:55.955874"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 11]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 11], ["created_at", "2024-04-18 10:16:55.970394"], ["updated_at", "2024-04-18 10:16:55.970394"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.9ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 12], ["created_at", "2024-04-18 10:16:55.984961"], ["updated_at", "2024-04-18 10:16:55.984961"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 12], ["created_at", "2024-04-18 10:16:56.001092"], ["updated_at", "2024-04-18 10:16:56.001092"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 12], ["created_at", "2024-04-18 10:16:56.012258"], ["updated_at", "2024-04-18 10:16:56.012258"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 12], ["created_at", "2024-04-18 10:16:56.023155"], ["updated_at", "2024-04-18 10:16:56.023155"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 13]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 13], ["created_at", "2024-04-18 10:16:56.037698"], ["updated_at", "2024-04-18 10:16:56.037698"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 13]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (21.1ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 13], ["created_at", "2024-04-18 10:16:56.048642"], ["updated_at", "2024-04-18 10:16:56.048642"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 13]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 13], ["created_at", "2024-04-18 10:16:56.087347"], ["updated_at", "2024-04-18 10:16:56.087347"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 13]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (1.1ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 13], ["created_at", "2024-04-18 10:16:56.103102"], ["updated_at", "2024-04-18 10:16:56.103102"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 14]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 14], ["created_at", "2024-04-18 10:16:56.119170"], ["updated_at", "2024-04-18 10:16:56.119170"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 14]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (1.1ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 14], ["created_at", "2024-04-18 10:16:56.132573"], ["updated_at", "2024-04-18 10:16:56.132573"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 14]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.9ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 14], ["created_at", "2024-04-18 10:16:56.168915"], ["updated_at", "2024-04-18 10:16:56.168915"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 14]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 14], ["created_at", "2024-04-18 10:16:56.187743"], ["updated_at", "2024-04-18 10:16:56.187743"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 15]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 15], ["created_at", "2024-04-18 10:16:56.205508"], ["updated_at", "2024-04-18 10:16:56.205508"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 15]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 15], ["created_at", "2024-04-18 10:16:56.217067"], ["updated_at", "2024-04-18 10:16:56.217067"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 15]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 15], ["created_at", "2024-04-18 10:16:56.227507"], ["updated_at", "2024-04-18 10:16:56.227507"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 15]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 15], ["created_at", "2024-04-18 10:16:56.242927"], ["updated_at", "2024-04-18 10:16:56.242927"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 16]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 16], ["created_at", "2024-04-18 10:16:56.253991"], ["updated_at", "2024-04-18 10:16:56.253991"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 16]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (21.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 16], ["created_at", "2024-04-18 10:16:56.264929"], ["updated_at", "2024-04-18 10:16:56.264929"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 16]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 16], ["created_at", "2024-04-18 10:16:56.297934"], ["updated_at", "2024-04-18 10:16:56.297934"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 16]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (1.0ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 16], ["created_at", "2024-04-18 10:16:56.316018"], ["updated_at", "2024-04-18 10:16:56.316018"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 17]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.9ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 17], ["created_at", "2024-04-18 10:16:56.331313"], ["updated_at", "2024-04-18 10:16:56.331313"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 17]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 17], ["created_at", "2024-04-18 10:16:56.348316"], ["updated_at", "2024-04-18 10:16:56.348316"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 17]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 17], ["created_at", "2024-04-18 10:16:56.359932"], ["updated_at", "2024-04-18 10:16:56.359932"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 17]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 17], ["created_at", "2024-04-18 10:16:56.371290"], ["updated_at", "2024-04-18 10:16:56.371290"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 18]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 18], ["created_at", "2024-04-18 10:16:56.384237"], ["updated_at", "2024-04-18 10:16:56.384237"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 18]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 18], ["created_at", "2024-04-18 10:16:56.400415"], ["updated_at", "2024-04-18 10:16:56.400415"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 18]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 18], ["created_at", "2024-04-18 10:16:56.416416"], ["updated_at", "2024-04-18 10:16:56.416416"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 18]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 18], ["created_at", "2024-04-18 10:16:56.436600"], ["updated_at", "2024-04-18 10:16:56.436600"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2024-04-18 13:18:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (21.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TestsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3002ms (ActiveRecord: 35.2ms | Allocations: 38615)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2024-04-18 13:18:42 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 34.8ms | Allocations: 544)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 337.6ms | Allocations: 3476)
+  Rendered shared/_nav.html.erb (Duration: 26.7ms | Allocations: 634)
+  Rendered shared/_flash.html.erb (Duration: 25.8ms | Allocations: 285)
+  Rendered shared/_footer.html.erb (Duration: 8.7ms | Allocations: 294)
+  Rendered layout layouts/application.html.erb (Duration: 4168.0ms | Allocations: 50753)
+Completed 200 OK in 4756ms (Views: 4587.6ms | ActiveRecord: 0.0ms | Allocations: 65267)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-04-18 13:19:24 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ams@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://127.0.0.1:3000/admin/tests
+Completed 303 See Other in 2809ms (ActiveRecord: 7.8ms | Allocations: 9645)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 13:19:27 +0300
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 13.6ms | Allocations: 238)
+  [1m[36mTest Load (11.9ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 23.2ms | Allocations: 793)
+  [1m[36mQuestion Count (25.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 4]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 13.9ms | Allocations: 480)
+  [1m[36mQuestion Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 5]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 7.8ms | Allocations: 447)
+  [1m[36mQuestion Count (10.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 6]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 358.5ms | Allocations: 10084)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 495.4ms | Allocations: 15874)
+  Rendered admin/_nav.html.erb (Duration: 35.7ms | Allocations: 584)
+  Rendered shared/_flash.html.erb (Duration: 0.5ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.8ms | Allocations: 93)
+  Rendered layout layouts/admin.html.erb (Duration: 774.4ms | Allocations: 27193)
+Completed 200 OK in 918ms (Views: 707.5ms | ActiveRecord: 75.9ms | Allocations: 32588)
+
+
+Started GET "/admin/tests/new" for 127.0.0.1 at 2024-04-18 13:19:54 +0300
+Processing by Admin::TestsController#new as HTML
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/new.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 0.2ms | Allocations: 18)
+  [1m[36mCategory Load (39.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."title" ASC[0m
+  ↳ app/views/admin/tests/_form.html.erb:15
+  Rendered admin/tests/_form.html.erb (Duration: 571.9ms | Allocations: 10153)
+  Rendered admin/tests/new.html.erb within layouts/admin (Duration: 621.8ms | Allocations: 10556)
+  Rendered admin/_nav.html.erb (Duration: 6.0ms | Allocations: 348)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 4.9ms | Allocations: 87)
+  Rendered layout layouts/admin.html.erb (Duration: 1383.5ms | Allocations: 21145)
+Completed 200 OK in 1429ms (Views: 1303.3ms | ActiveRecord: 103.7ms | Allocations: 23011)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 13:20:02 +0300
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mTest Load (5.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 22.4ms | Allocations: 465)
+  [1m[36mQuestion Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 4]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 31.7ms | Allocations: 447)
+  [1m[36mQuestion Count (24.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 5]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 52.1ms | Allocations: 447)
+  [1m[36mQuestion Count (28.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 6]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 411.3ms | Allocations: 4744)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 478.5ms | Allocations: 5695)
+  Rendered admin/_nav.html.erb (Duration: 15.6ms | Allocations: 342)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 66)
+  Rendered layout layouts/admin.html.erb (Duration: 1334.4ms | Allocations: 16137)
+Completed 200 OK in 1429ms (Views: 1314.0ms | ActiveRecord: 63.3ms | Allocations: 17939)
+
+
+Started GET "/admin/tests/4" for 127.0.0.1 at 2024-04-18 13:20:10 +0300
+Processing by Admin::TestsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTest Load (1.2ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/admin/tests_controller.rb:64:in `find_test'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/show.html.erb within layouts/admin
+  [1m[36mQuestion Load (16.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 4]]
+  ↳ app/views/admin/tests/show.html.erb:30
+  Rendered collection of admin/questions/_question.html.erb [3 times] (Duration: 41.9ms | Allocations: 1094)
+  Rendered admin/tests/show.html.erb within layouts/admin (Duration: 509.4ms | Allocations: 6654)
+  Rendered admin/_nav.html.erb (Duration: 50.2ms | Allocations: 348)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 87)
+  Rendered layout layouts/admin.html.erb (Duration: 1073.7ms | Allocations: 17252)
+Completed 200 OK in 1159ms (Views: 1061.6ms | ActiveRecord: 37.5ms | Allocations: 20124)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 13:20:18 +0300
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 13:20:18 +0300
+Processing by Admin::TestsController#index as HTML
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mTest Load (13.9ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 54.6ms | Allocations: 472)
+  [1m[36mQuestion Count (72.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 4]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 70.4ms | Allocations: 447)
+  [1m[36mQuestion Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 5]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered admin/tests/_form_inline.html.erb (Duration: 9.0ms | Allocations: 447)
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 0.3ms | Allocations: 9)
+  [1m[36mQuestion Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 6]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 730.6ms | Allocations: 8344)
+  [1m[36mTest Load (44.5ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 856.6ms | Allocations: 9355)
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 2.9ms | Allocations: 452)
+  [1m[36mQuestion Count (26.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 4]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 23.8ms | Allocations: 447)
+  [1m[36mQuestion Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 5]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 4.2ms | Allocations: 447)
+  [1m[36mQuestion Count (6.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 6]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 376.1ms | Allocations: 10917)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 520.3ms | Allocations: 13200)
+  Rendered admin/_nav.html.erb (Duration: 33.1ms | Allocations: 342)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 66)
+  Rendered layout layouts/admin.html.erb (Duration: 1502.7ms | Allocations: 28386)
+Completed 200 OK in 1589ms (Views: 1424.6ms | ActiveRecord: 93.8ms | Allocations: 32099)
+
+
+  Rendered admin/_nav.html.erb (Duration: 11.9ms | Allocations: 342)
+  Rendered shared/_flash.html.erb (Duration: 0.4ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 66)
+  Rendered layout layouts/admin.html.erb (Duration: 1020.6ms | Allocations: 27870)
+Completed 200 OK in 1810ms (Views: 995.4ms | ActiveRecord: 423.1ms | Allocations: 38607)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-18 13:20:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (14.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (12.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 1.5ms | Allocations: 252)
+  [1m[36mTest Load (1.0ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 151.9ms | Allocations: 1059)
+  [1m[36mQuestion Count (32.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 4]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 1.2ms | Allocations: 480)
+  [1m[36mQuestion Count (19.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 5]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 5.9ms | Allocations: 447)
+  [1m[36mQuestion Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 6]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 759.3ms | Allocations: 10380)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 1320.6ms | Allocations: 16608)
+  Rendered admin/_nav.html.erb (Duration: 18.6ms | Allocations: 596)
+  Rendered shared/_flash.html.erb (Duration: 95.1ms | Allocations: 237)
+  Rendered shared/_footer.html.erb (Duration: 16.3ms | Allocations: 294)
+  Rendered layout layouts/admin.html.erb (Duration: 7018.8ms | Allocations: 63860)
+Completed 200 OK in 13101ms (Views: 7035.0ms | ActiveRecord: 173.9ms | Allocations: 123154)
+
+
