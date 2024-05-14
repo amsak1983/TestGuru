@@ -10764,3 +10764,115 @@ puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
 puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.5) lib/puma/server.rb:443:in `process_client'
 puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-04-28 12:42:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (202.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TestsController#index as HTML
+Completed 401 Unauthorized in 9167ms (ActiveRecord: 0.0ms | Allocations: 33971)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2024-04-28 12:42:41 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 68.2ms | Allocations: 544)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1156.3ms | Allocations: 3488)
+  Rendered shared/_nav.html.erb (Duration: 4586.7ms | Allocations: 636)
+  Rendered shared/_flash.html.erb (Duration: 39.4ms | Allocations: 288)
+  Rendered shared/_footer.html.erb (Duration: 98.6ms | Allocations: 294)
+  Rendered layout layouts/application.html.erb (Duration: 51042.4ms | Allocations: 50837)
+Completed 200 OK in 54475ms (Views: 51732.7ms | ActiveRecord: 2316.0ms | Allocations: 66854)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-04-28 12:44:29 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amsak@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (415.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 4576ms (ActiveRecord: 756.1ms | Allocations: 6325)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-28 12:44:35 +0300
+Processing by TestsController#index as HTML
+  [1m[36mUser Load (45.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tests/index.html.erb within layouts/application
+  [1m[36mTest Load (730.5ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/tests/index.html.erb:18
+  [1m[36mQuestion Count (345.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 4]]
+  ↳ app/views/tests/_test.html.erb:4
+  [1m[36mQuestion Count (41.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 5]]
+  ↳ app/views/tests/_test.html.erb:4
+  [1m[36mQuestion Count (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 6]]
+  ↳ app/views/tests/_test.html.erb:4
+  Rendered collection of tests/_test.html.erb [3 times] (Duration: 1163.9ms | Allocations: 7831)
+  Rendered tests/index.html.erb within layouts/application (Duration: 2375.3ms | Allocations: 13115)
+  Rendered shared/_nav.html.erb (Duration: 1.3ms | Allocations: 293)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 93)
+  Rendered layout layouts/application.html.erb (Duration: 3006.9ms | Allocations: 23790)
+Completed 200 OK in 4134ms (Views: 1799.0ms | ActiveRecord: 1462.4ms | Allocations: 29024)
+
+
+Started DELETE "/gurus/log_out" for 127.0.0.1 at 2024-04-28 12:48:18 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (15.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (16.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 15239ms (ActiveRecord: 241.3ms | Allocations: 54367)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-28 12:49:35 +0300
+Processing by TestsController#index as HTML
+Completed 401 Unauthorized in 36ms (ActiveRecord: 0.0ms | Allocations: 607)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2024-04-28 12:49:35 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 64.3ms | Allocations: 544)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 283.9ms | Allocations: 3449)
+  Rendered shared/_nav.html.erb (Duration: 24.1ms | Allocations: 629)
+  Rendered shared/_flash.html.erb (Duration: 1.5ms | Allocations: 284)
+  Rendered shared/_footer.html.erb (Duration: 16.4ms | Allocations: 238)
+  Rendered layout layouts/application.html.erb (Duration: 11480.2ms | Allocations: 50676)
+Completed 200 OK in 11809ms (Views: 11750.3ms | ActiveRecord: 0.0ms | Allocations: 54209)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-04-28 12:50:56 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ams@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ams@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://127.0.0.1:3000/admin/tests
+Completed 303 See Other in 1611ms (ActiveRecord: 0.5ms | Allocations: 13444)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-04-28 12:50:59 +0300
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 24.9ms | Allocations: 238)
+  [1m[36mTest Load (4.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:23
+  Rendered admin/tests/_form_inline.html.erb (Duration: 32.8ms | Allocations: 784)
+  [1m[36mQuestion Count (18.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 4]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 30.1ms | Allocations: 480)
+  [1m[36mQuestion Count (19.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 5]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered admin/tests/_form_inline.html.erb (Duration: 1.5ms | Allocations: 447)
+  [1m[36mQuestion Count (5.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 6]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 407.2ms | Allocations: 10073)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 638.5ms | Allocations: 15857)
+  Rendered admin/_nav.html.erb (Duration: 29.6ms | Allocations: 585)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 93)
+  Rendered layout layouts/admin.html.erb (Duration: 869.9ms | Allocations: 27174)
+Completed 200 OK in 1043ms (Views: 798.0ms | ActiveRecord: 89.7ms | Allocations: 32586)
+
+
