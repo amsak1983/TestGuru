@@ -65,8 +65,6 @@ gem 'faraday-retry'
 
 gem 'execjs'
 
-gem 'therubyracer'
-
 # Use Sass to process CSS
 gem 'sassc-rails'
 
