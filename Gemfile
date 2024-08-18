@@ -63,6 +63,8 @@ gem 'faraday'
 
 gem 'faraday-retry'
 
+gem 'execjs'
+
 # Use Sass to process CSS
 gem 'sassc-rails'
 

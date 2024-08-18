@@ -296,6 +296,7 @@ DEPENDENCIES
   debug
   devise (~> 4.0)
   dotenv-rails
+  execjs
   faraday
   faraday-retry
   importmap-rails
