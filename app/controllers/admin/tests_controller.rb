@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 class Admin::TestsController < Admin::BaseController
-    before_action :set_tests, only: %i[index update_inline]
-    before_action :find_test, only: %i[show edit update destroy start update_inline]
+  before_action :set_tests, only: %i[index update_inline]
+  before_action :find_test, only: %i[show edit update destroy start update_inline]
 
-    rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-    def index
-      @tests = Test.all
-    end
+  def index
+    @tests = Test.all
+  end
 
-    def show; end
+  def show; end
 
     def new
       @test = Test.new
@@ -18,11 +18,11 @@ class Admin::TestsController < Admin::BaseController
 
     def edit; end
 
-    def update_inline
-      if @test.update(test_params)
-        redirect_to admin_tests_path
-      else
-        render :index
+      def update_inline
+        if @test.update(test_params)
+          redirect_to admin_tests_path
+        else
+          render :index
       end
     end
 
