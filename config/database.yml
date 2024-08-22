@@ -12,7 +12,7 @@ default: &default
   password: <%= ENV['PASSWORD'] %>
   host: <%= ENV['HOST_NAME'] %>
 
-development:
+development:   
   <<: *default
   database: test_guru_development
 

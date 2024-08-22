@@ -65,6 +65,8 @@ gem 'faraday-retry'
 
 gem 'execjs'
 
+gem 'coffee-script-source'
+
 # Use Sass to process CSS
 gem 'sassc-rails'
 
