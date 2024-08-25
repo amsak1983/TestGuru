@@ -7,8 +7,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 Admin.destroy_all
-admin = Admin.create!(first_name: 'Alexey', last_name: 'Kasabutsky', username: 'bobcop', email: 'ams@yandex.by', type: 'Admin',
+admin = Admin.create!(first_name: 'Alexey', last_name: 'Kasabutsky', username: 'bobcop', email: 'amsak@yandex.by', type: 'Admin',
                       password: 'zse4321')
 
 category = Category.find_or_create_by!(title: 'category1')
