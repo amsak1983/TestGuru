@@ -11,6 +11,8 @@
 Admin.destroy_all
 admin = Admin.create!(first_name: 'Alexey', last_name: 'Kasabutsky', username: 'bobcop', email: 'amsak@yandex.by', type: 'Admin',
                       password: 'zse4321')
+user = User.create!(first_name: 'Bos', last_name: 'Kasabutsky', username: 'bobcop', email: 'am@yandex.by', type: 'User',
+                      password: 'zse4321')
 
 category = Category.find_or_create_by!(title: 'category1')
 
@@ -23,11 +25,12 @@ tests.each do |test|
   Question.create!([{ body: 'question1', test: },
                     { body: 'question2', test: },
                     { body: 'question3', test: }])
+  TestPassage.create!(user: user, test: test, current_question: test.questions.first, correct_questions: 0)
 end
-
+                  
 Question.all.each do |question|
-  Answer.create!([{ body: 'answer1', correct: false, question: },
-                  { body: 'answer2', correct: true, question: },
-                  { body: 'answer3', correct: false, question: },
-                  { body: 'answer4', correct: false, question: }])
+  Answer.create!([{ body: 'answer1', correct: false, question: question },
+                  { body: 'answer2', correct: true, question: question },
+                  { body: 'answer3', correct: false, question: question },
+                  { body: 'answer4', correct: false, question: question }])
 end
