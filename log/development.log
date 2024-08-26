@@ -16731,3 +16731,277 @@ Processing by TestPassagesController#result as HTML
 Completed 200 OK in 319ms (Views: 295.7ms | ActiveRecord: 11.4ms | Allocations: 5889)
 
 
+Started GET "/" for 127.0.0.1 at 2024-08-26 21:43:31 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (31.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TestsController#index as HTML
+Completed 401 Unauthorized in 2493ms (ActiveRecord: 0.0ms | Allocations: 33862)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2024-08-26 21:43:51 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 42.3ms | Allocations: 544)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1771.0ms | Allocations: 3487)
+  Rendered shared/_nav.html.erb (Duration: 15.8ms | Allocations: 629)
+  Rendered shared/_flash.html.erb (Duration: 28.6ms | Allocations: 286)
+  Rendered shared/_footer.html.erb (Duration: 392.4ms | Allocations: 297)
+  Rendered layout layouts/application.html.erb (Duration: 2568.1ms | Allocations: 5849)
+Completed 200 OK in 3850ms (Views: 2865.4ms | ActiveRecord: 264.7ms | Allocations: 21884)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-08-26 21:44:21 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"am@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (32.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "am@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 2320ms (ActiveRecord: 33.2ms | Allocations: 6329)
+
+
+Started GET "/" for 127.0.0.1 at 2024-08-26 21:44:23 +0300
+Processing by TestsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tests/index.html.erb within layouts/application
+  [1m[36mTest Load (35.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/tests/index.html.erb:18
+  [1m[36mQuestion Count (60.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/views/tests/_test.html.erb:4
+  [1m[36mQuestion Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 23]]
+  ↳ app/views/tests/_test.html.erb:4
+  [1m[36mQuestion Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 24]]
+  ↳ app/views/tests/_test.html.erb:4
+  Rendered collection of tests/_test.html.erb [3 times] (Duration: 656.9ms | Allocations: 7831)
+  Rendered tests/index.html.erb within layouts/application (Duration: 891.4ms | Allocations: 13115)
+  Rendered shared/_nav.html.erb (Duration: 0.9ms | Allocations: 292)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered layout layouts/application.html.erb (Duration: 911.0ms | Allocations: 14250)
+Completed 200 OK in 1393ms (Views: 810.9ms | ActiveRecord: 105.3ms | Allocations: 19491)
+
+
+Started POST "/tests/22/start" for 127.0.0.1 at 2024-08-26 21:44:35 +0300
+Processing by TestsController#start as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTest Load (3.0ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/tests_controller.rb:24:in `find_test'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tests_controller.rb:13:in `start'
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1 ORDER BY "questions"."id" ASC LIMIT $2[0m  [["test_id", 22], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:42:in `before_validation_set_first_question'
+  [1m[36mTestPassage Create (156.4ms)[0m  [1m[32mINSERT INTO "test_passages" ("user_id", "test_id", "current_question_id", "correct_questions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 13], ["test_id", 22], ["current_question_id", 52], ["correct_questions", 0], ["created_at", "2024-08-26 18:44:35.833384"], ["updated_at", "2024-08-26 18:44:35.833384"]]
+  ↳ app/controllers/tests_controller.rb:13:in `start'
+  [1m[36mTRANSACTION (173.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tests_controller.rb:13:in `start'
+  [1m[36mTestPassage Load (0.6ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1 AND "test_passages"."test_id" = $2 ORDER BY "test_passages"."id" DESC LIMIT $3[0m  [["user_id", 13], ["test_id", 22], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `test_passage'
+Redirected to http://127.0.0.1:3000/test_passages/16
+Completed 302 Found in 1941ms (ActiveRecord: 341.6ms | Allocations: 20695)
+
+
+Started GET "/test_passages/16" for 127.0.0.1 at 2024-08-26 21:44:37 +0300
+Processing by TestPassagesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/test_passages_controller.rb:30:in `set_test_passage'
+  Rendering layout layouts/application.html.erb
+  Rendering test_passages/show.html.erb within layouts/application
+  [1m[36mTest Load (6.1ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/views/test_passages/show.html.erb:1
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:35:in `current_question_number'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:35:in `current_question_number'
+  [1m[36mQuestion Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:31:in `questions_count'
+  [1m[36mCACHE Question Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:31:in `questions_count'
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 52]]
+  ↳ app/views/test_passages/show.html.erb:18
+  Rendered test_passages/show.html.erb within layouts/application (Duration: 181.5ms | Allocations: 18102)
+  Rendered shared/_nav.html.erb (Duration: 0.8ms | Allocations: 270)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 93)
+  Rendered layout layouts/application.html.erb (Duration: 206.5ms | Allocations: 19155)
+Completed 200 OK in 225ms (Views: 203.2ms | ActiveRecord: 13.5ms | Allocations: 22685)
+
+
+Started PUT "/test_passages/16" for 127.0.0.1 at 2024-08-26 21:44:40 +0300
+Processing by TestPassagesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Далее", "id"=>"16"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/test_passages_controller.rb:30:in `set_test_passage'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/test_passage.rb:41:in `before_validation_set_first_question'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:41:in `before_validation_set_first_question'
+  [1m[36mTest Load (5.0ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:49:in `next_question'
+  [1m[36mQuestion Load (219.9ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1 AND (id > 52) ORDER BY "questions"."id" ASC LIMIT $2[0m  [["test_id", 22], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:49:in `next_question'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  [1m[36mTestPassage Update (2.0ms)[0m  [1m[33mUPDATE "test_passages" SET "current_question_id" = $1, "updated_at" = $2 WHERE "test_passages"."id" = $3[0m  [["current_question_id", 53], ["updated_at", "2024-08-26 18:44:41.290275"], ["id", 16]]
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  [1m[36mTRANSACTION (76.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  Rendering layout layouts/application.html.erb
+  Rendering test_passages/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:35:in `current_question_number'
+  [1m[36mQuestion Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:31:in `questions_count'
+  [1m[36mCACHE Question Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:31:in `questions_count'
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 53]]
+  ↳ app/views/test_passages/show.html.erb:18
+  Rendered test_passages/show.html.erb within layouts/application (Duration: 38.9ms | Allocations: 7552)
+  Rendered shared/_nav.html.erb (Duration: 0.7ms | Allocations: 249)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 66)
+  Rendered layout layouts/application.html.erb (Duration: 47.6ms | Allocations: 8444)
+Completed 200 OK in 1138ms (Views: 47.2ms | ActiveRecord: 307.1ms | Allocations: 16495)
+
+
+Started PUT "/test_passages/16" for 127.0.0.1 at 2024-08-26 21:44:43 +0300
+Processing by TestPassagesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Далее", "id"=>"16"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/test_passages_controller.rb:30:in `set_test_passage'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/test_passage.rb:41:in `before_validation_set_first_question'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:41:in `before_validation_set_first_question'
+  [1m[36mTest Load (6.8ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:49:in `next_question'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1 AND (id > 53) ORDER BY "questions"."id" ASC LIMIT $2[0m  [["test_id", 22], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:49:in `next_question'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  [1m[36mTestPassage Update (4.7ms)[0m  [1m[33mUPDATE "test_passages" SET "current_question_id" = $1, "updated_at" = $2 WHERE "test_passages"."id" = $3[0m  [["current_question_id", 54], ["updated_at", "2024-08-26 18:44:43.601497"], ["id", 16]]
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  [1m[36mTRANSACTION (80.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  Rendering layout layouts/application.html.erb
+  Rendering test_passages/show.html.erb within layouts/application
+  [1m[36mQuestion Load (19.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:35:in `current_question_number'
+  [1m[36mQuestion Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:31:in `questions_count'
+  [1m[36mCACHE Question Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:31:in `questions_count'
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 54]]
+  ↳ app/views/test_passages/show.html.erb:18
+  Rendered test_passages/show.html.erb within layouts/application (Duration: 65.1ms | Allocations: 7612)
+  Rendered shared/_nav.html.erb (Duration: 0.8ms | Allocations: 249)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 66)
+  Rendered layout layouts/application.html.erb (Duration: 79.3ms | Allocations: 8504)
+Completed 200 OK in 232ms (Views: 59.8ms | ActiveRecord: 118.1ms | Allocations: 15340)
+
+
+Started PUT "/test_passages/16" for 127.0.0.1 at 2024-08-26 21:44:45 +0300
+Processing by TestPassagesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Далее", "id"=>"16"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTestPassage Load (6.1ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/test_passages_controller.rb:30:in `set_test_passage'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/test_passage.rb:41:in `before_validation_set_first_question'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:41:in `before_validation_set_first_question'
+  [1m[36mTest Load (6.7ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:49:in `next_question'
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1 AND (id > 54) ORDER BY "questions"."id" ASC LIMIT $2[0m  [["test_id", 22], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:49:in `next_question'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  [1m[36mTestPassage Update (126.6ms)[0m  [1m[33mUPDATE "test_passages" SET "current_question_id" = $1, "updated_at" = $2 WHERE "test_passages"."id" = $3[0m  [["current_question_id", nil], ["updated_at", "2024-08-26 18:44:45.348967"], ["id", 16]]
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  [1m[36mTRANSACTION (87.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/test_passage.rb:15:in `accept!'
+  Rendering layout layouts/mailer.text.erb
+  Rendering tests_mailer/completed_test.ru.text.erb within layouts/mailer
+  Rendered tests_mailer/completed_test.ru.text.erb within layouts/mailer (Duration: 92.7ms | Allocations: 225)
+  Rendered layout layouts/mailer.text.erb (Duration: 149.6ms | Allocations: 427)
+  Rendering layout layouts/mailer.html.erb
+  Rendering tests_mailer/completed_test.ru.html within layouts/mailer
+  Rendered tests_mailer/completed_test.ru.html within layouts/mailer (Duration: 7.8ms | Allocations: 91)
+  Rendered layout layouts/mailer.html.erb (Duration: 411.2ms | Allocations: 312)
+TestsMailer#completed_test: processed outbound mail in 4073.7ms
+Delivered mail 66cccd258e61a_8029490c56965@alexey-VirtualBox.mail (8397.0ms)
+Date: Mon, 26 Aug 2024 21:44:53 +0300
+From: TestGuru <admin@testguru.com>
+To: am@yandex.by
+Message-ID: <66cccd258e61a_8029490c56965@alexey-VirtualBox.mail>
+Subject: Completed test
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_66cccd247948a_8029490c5685c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_66cccd247948a_8029490c5685c
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+0J7RgtC70LjRh9C90L4hDQo9PT09PT09PQ0KDQrQn9C+0LfQtNGA0LDQstC7
+0Y/QtdC8ISDQktGLINC30LDQstC10YDRiNC40LvQuCAidGVzdDEiINGC0LXR
+gdGCLiDQktGL0LHQtdGA0LjRgtC1INCS0LDRiCDRgdC70LXQtNGD0Y7RidC4
+0Lkg0YLQtdGB0YI6IGh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC8NCg0K
+
+----==_mimepart_66cccd247948a_8029490c5685c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PCFET0NUWVBFIGh0bWw+DQo8aHRtbD4NCiAgPGhlYWQ+DQogICAgPG1ldGEg
+aHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0L2h0bWw7
+IGNoYXJzZXQ9dXRmLTgiIC8+DQogICAgPHN0eWxlPg0KICAgICAgLm1haWxi
+b3ggew0KICAgICAgICAgIGJvcmRlcjogM3B4IHNvbGlkICMzYzg1ZTA7DQog
+ICAgICAgICAgcGFkZGluZzogMTBweDsNCiAgICAgICAgICBib3JkZXItcmFk
+aXVzOiA1cHg7DQogICAgICAgICAgd2lkdGg6IDcwJTsNCiAgICAgICAgICBt
+YXJnaW46IDAgYXV0bzsNCiAgICAgICAgICBtYXJnaW4tdG9wOiAyNXB4Ow0K
+ICAgICAgfQ0KICAgIDwvc3R5bGU+DQogIDwvaGVhZD4NCg0KICA8Ym9keT4N
+CiAgICA8ZGl2IGNsYXNzPSJtYWlsYm94Ij4NCiAgICAgIDxoMT7QntGC0LvQ
+uNGH0L3QviE8L2gxPg0KDQo8cD4NCiAg0J/QvtC30LTRgNCw0LLQu9GP0LXQ
+vCEg0JLRiyDQt9Cw0LLQtdGA0YjQuNC70LggPGI+PCU9IEB0ZXN0LnRpdGxl
+ICU+PC9iPiDRgtC10YHRgi4g0J/QvtGH0LXQvNGDINCx0Ysg0L3QtSDQv9GA
+0L7QudGC0LggPCU9IGxpbmtfdG8gJ9C10YnRkScsIHJvb3RfdXJsICU+Pw0K
+PC9wPg0KDQogICAgPC9kaXY+DQogIDwvYm9keT4NCjwvaHRtbD4NCg==
+
+----==_mimepart_66cccd247948a_8029490c5685c--
+
+Redirected to http://127.0.0.1:3000/test_passages/16/result
+Completed 302 Found in 16411ms (ActiveRecord: 234.2ms | Allocations: 59339)
+
+
+Started GET "/test_passages/16/result" for 127.0.0.1 at 2024-08-26 21:45:01 +0300
+Processing by TestPassagesController#result as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTestPassage Load (0.5ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/test_passages_controller.rb:30:in `set_test_passage'
+  Rendering layout layouts/application.html.erb
+  Rendering test_passages/result.html.erb within layouts/application
+  [1m[36mTest Load (0.6ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/views/test_passages/result.html.erb:1
+  [1m[36mQuestion Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:31:in `questions_count'
+  [1m[36mCACHE Question Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  ↳ app/models/test_passage.rb:31:in `questions_count'
+  Rendered test_passages/result.html.erb within layouts/application (Duration: 260.6ms | Allocations: 2499)
+  Rendered shared/_nav.html.erb (Duration: 0.9ms | Allocations: 255)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 29)
+  Rendered shared/_footer.html.erb (Duration: 1.8ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 266.6ms | Allocations: 3456)
+Completed 200 OK in 297ms (Views: 269.7ms | ActiveRecord: 2.2ms | Allocations: 5893)
+
+
