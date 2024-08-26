@@ -11,7 +11,7 @@
 Admin.destroy_all
 admin = Admin.find_or_create_by!(first_name: 'Alexey', last_name: 'Kasabutsky', username: 'bobcop', email: 'amsak@yandex.by', type: 'Admin',
                       password: 'zse4321')
-user = User.find_or_create_by!(first_name: 'Bos', last_name: 'Kasabutsky', username: 'bobcop', email: 'am@yandex.by', type: 'User',
+user = User.create!(first_name: 'Bos', last_name: 'Kasabutsky', username: 'bobcop', email: 'am@yandex.by', type: 'User',
                       password: 'zse4321')
 
 category = Category.find_or_create_by!(title: 'category1')
