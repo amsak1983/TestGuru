@@ -9,28 +9,28 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Admin.destroy_all
-admin = Admin.create!(first_name: 'Alexey', last_name: 'Kasabutsky', username: 'bobcop', email: 'amsak@yandex.by', type: 'Admin',
+admin = Admin.find_or_create_by!(first_name: 'Alexey', last_name: 'Kasabutsky', username: 'bobcop', email: 'amsak@yandex.by', type: 'Admin',
                       password: 'zse4321')
-user = User.create!(first_name: 'Bos', last_name: 'Kasabutsky', username: 'bobcop', email: 'am@yandex.by', type: 'User',
+user = User.find_or_create_by!(first_name: 'Bos', last_name: 'Kasabutsky', username: 'bobcop', email: 'am@yandex.by', type: 'User',
                       password: 'zse4321')
 
 category = Category.find_or_create_by!(title: 'category1')
 
 Test.destroy_all
-tests = Test.create!([{ title: 'test1', level: 0, category: category, creator: admin },
-                      { title: 'test2', level: 1, category: category, creator: admin },
-                      { title: 'test3', level: 2, category: category, creator: admin }])
+tests = Test.find_or_create_by!([{ title: 'test1', level: 0, category: category, creator: admin },
+                                 { title: 'test2', level: 1, category: category, creator: admin },
+                                 { title: 'test3', level: 2, category: category, creator: admin }])
 
 tests.each do |test|
-  Question.create!([{ body: 'question1', test: },
-                    { body: 'question2', test: },
-                    { body: 'question3', test: }])
-  TestPassage.create!(user: user, test: test, current_question: test.questions.first, correct_questions: 0)
+  Question.find_or_create_by!([{ body: 'question1', test: },
+                               { body: 'question2', test: },
+                               { body: 'question3', test: }])
+  TestPassage.find_or_create_by!(user: user, test: test, current_question: test.questions.first, correct_questions: 0)
 end
                   
 Question.all.each do |question|
-  Answer.create!([{ body: 'answer1', correct: false, question: question },
-                  { body: 'answer2', correct: true, question: question },
-                  { body: 'answer3', correct: false, question: question },
-                  { body: 'answer4', correct: false, question: question }])
+  Answer.find_or_create_by!([{ body: 'answer1', correct: false, question: question },
+                             { body: 'answer2', correct: true, question: question },
+                             { body: 'answer3', correct: false, question: question },
+                             { body: 'answer4', correct: false, question: question }])
 end
