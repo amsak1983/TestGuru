@@ -17005,3 +17005,586 @@ Processing by TestPassagesController#result as HTML
 Completed 200 OK in 297ms (Views: 269.7ms | ActiveRecord: 2.2ms | Allocations: 5893)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (12.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (42.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 12]]
+  [1m[36mQuestion Load (5.9ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 22]]
+  [1m[36mAnswer Load (22.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 52]]
+  [1m[36mAnswer Destroy (35.7ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 181]]
+  [1m[36mAnswer Destroy (2.9ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 182]]
+  [1m[36mAnswer Destroy (0.9ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 183]]
+  [1m[36mAnswer Destroy (0.7ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 184]]
+  [1m[36mGist Load (26.6ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 52]]
+  [1m[36mTestPassage Load (0.7ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 52]]
+  [1m[36mQuestion Destroy (19.5ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 52]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 53]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 185]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 186]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 187]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 188]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 53]]
+  [1m[36mTestPassage Load (7.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 53]]
+  [1m[36mTestPassage Destroy (12.2ms)[0m  [1m[31mDELETE FROM "test_passages" WHERE "test_passages"."id" = $1[0m  [["id", 12]]
+  [1m[36mQuestion Destroy (0.9ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 53]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 54]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 189]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 190]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 191]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 192]]
+  [1m[36mGist Load (0.5ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 54]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 54]]
+  [1m[36mQuestion Destroy (0.7ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 54]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 22]]
+  [1m[36mTestPassage Destroy (0.4ms)[0m  [1m[31mDELETE FROM "test_passages" WHERE "test_passages"."id" = $1[0m  [["id", 15]]
+  [1m[36mTestPassage Destroy (0.3ms)[0m  [1m[31mDELETE FROM "test_passages" WHERE "test_passages"."id" = $1[0m  [["id", 16]]
+  [1m[36mTest Destroy (1.7ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 22]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 23]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 55]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 193]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 194]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 195]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 196]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 55]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 55]]
+  [1m[36mQuestion Destroy (0.7ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 55]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 56]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 197]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 198]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 199]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 200]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 56]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 56]]
+  [1m[36mTestPassage Destroy (0.4ms)[0m  [1m[31mDELETE FROM "test_passages" WHERE "test_passages"."id" = $1[0m  [["id", 13]]
+  [1m[36mQuestion Destroy (0.7ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 56]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 57]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 201]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 202]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 203]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 204]]
+  [1m[36mGist Load (0.5ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 57]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 57]]
+  [1m[36mQuestion Destroy (1.2ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 57]]
+  [1m[36mTestPassage Load (0.7ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 23]]
+  [1m[36mTest Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 23]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 24]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 58]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 205]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 206]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 207]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 208]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 58]]
+  [1m[36mTestPassage Load (0.2ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 58]]
+  [1m[36mQuestion Destroy (0.5ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 58]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 59]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 209]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 210]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 211]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 212]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 59]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 59]]
+  [1m[36mTestPassage Destroy (0.4ms)[0m  [1m[31mDELETE FROM "test_passages" WHERE "test_passages"."id" = $1[0m  [["id", 14]]
+  [1m[36mQuestion Destroy (0.5ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 59]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 60]]
+  [1m[36mAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 213]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 214]]
+  [1m[36mAnswer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 215]]
+  [1m[36mAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 216]]
+  [1m[36mGist Load (0.2ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 60]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 60]]
+  [1m[36mQuestion Destroy (0.5ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 60]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 24]]
+  [1m[36mTest Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 24]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mAdmin Destroy (1.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 12]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (30.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (3.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2024-08-27 18:59:28.194285"], ["updated_at", "2024-08-27 18:59:28.194285"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Alexey"], ["last_name", "Kasabutsky"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (29.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (38.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."title" = $1 ORDER BY "categories"."title" ASC LIMIT $2[0m  [["title", "category1"], ["LIMIT", 1]]
+  [1m[36mTest Load (0.9ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (0.7ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 15]]
+  [1m[36mTestPassage Load (0.6ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mGist Load (0.6ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mAdmin Destroy (13.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 15]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2024-08-27 19:00:03.235877"], ["updated_at", "2024-08-27 19:00:03.235877"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Alexey"], ["last_name", "Kasabutsky"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."title" = $1 ORDER BY "categories"."title" ASC LIMIT $2[0m  [["title", "category1"], ["LIMIT", 1]]
+  [1m[36mTest Load (0.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test1"], ["level", 0], ["LIMIT", 1]]
+  [1m[36mTest Create (20.3ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test1"], ["level", 0], ["category_id", 1], ["creator_id", 16], ["created_at", "2024-08-27 19:00:03.355652"], ["updated_at", "2024-08-27 19:00:03.355652"]]
+  [1m[36mTRANSACTION (12.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test2"], ["level", 1], ["LIMIT", 1]]
+  [1m[36mTest Create (0.7ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test2"], ["level", 1], ["category_id", 1], ["creator_id", 16], ["created_at", "2024-08-27 19:00:03.431053"], ["updated_at", "2024-08-27 19:00:03.431053"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test3"], ["level", 2], ["LIMIT", 1]]
+  [1m[36mTest Create (58.5ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test3"], ["level", 2], ["category_id", 1], ["creator_id", 16], ["created_at", "2024-08-27 19:00:03.451581"], ["updated_at", "2024-08-27 19:00:03.451581"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (18.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (90.1ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 16]]
+  [1m[36mQuestion Load (50.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 25]]
+  [1m[36mTestPassage Load (35.9ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 25]]
+  [1m[36mTest Destroy (48.3ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 25]]
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 26]]
+  [1m[36mTestPassage Load (0.6ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 26]]
+  [1m[36mTest Destroy (15.2ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 26]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 27]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 27]]
+  [1m[36mTest Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 27]]
+  [1m[36mTestPassage Load (0.4ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mGist Load (17.2ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mAdmin Destroy (47.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 16]]
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (9.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (20.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2024-08-27 19:12:44.727595"], ["updated_at", "2024-08-27 19:12:44.727595"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Alexey"], ["last_name", "Kasabutsky"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (0.8ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 17]]
+  [1m[36mTestPassage Load (0.7ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mGist Load (0.7ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mAdmin Destroy (1.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 17]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2024-08-27 19:13:32.207276"], ["updated_at", "2024-08-27 19:13:32.207276"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Alexey"], ["last_name", "Kasabutsky"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (0.6ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 18]]
+  [1m[36mTestPassage Load (0.6ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 18]]
+  [1m[36mGist Load (0.5ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 18]]
+  [1m[36mAdmin Destroy (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 18]]
+  [1m[36mTRANSACTION (42.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2024-08-27 19:14:39.912099"], ["updated_at", "2024-08-27 19:14:39.912099"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Alexey"], ["last_name", "Kasabutsky"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "tom@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (0.6ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 19]]
+  [1m[36mTestPassage Load (0.7ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 19]]
+  [1m[36mGist Load (0.6ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 19]]
+  [1m[36mAdmin Destroy (1.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 19]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2024-08-27 19:15:17.247346"], ["updated_at", "2024-08-27 19:15:17.247346"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Alexey"], ["last_name", "Kasabutsky"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (33.4ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "category1"], ["created_at", "2024-08-27 19:15:17.277360"], ["updated_at", "2024-08-27 19:15:17.277360"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTest Load (0.5ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test1"], ["level", 0], ["LIMIT", 1]]
+  [1m[36mTest Create (8.4ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test1"], ["level", 0], ["category_id", 5], ["creator_id", 20], ["created_at", "2024-08-27 19:15:17.417119"], ["updated_at", "2024-08-27 19:15:17.417119"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test2"], ["level", 1], ["LIMIT", 1]]
+  [1m[36mTest Create (0.8ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test2"], ["level", 1], ["category_id", 5], ["creator_id", 20], ["created_at", "2024-08-27 19:15:17.457613"], ["updated_at", "2024-08-27 19:15:17.457613"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test3"], ["level", 2], ["LIMIT", 1]]
+  [1m[36mTest Create (0.7ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test3"], ["level", 2], ["category_id", 5], ["creator_id", 20], ["created_at", "2024-08-27 19:15:17.471857"], ["updated_at", "2024-08-27 19:15:17.471857"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (56.7ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question1"], ["test_id", 28], ["created_at", "2024-08-27 19:15:17.497009"], ["updated_at", "2024-08-27 19:15:17.497009"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question2"], ["test_id", 28], ["created_at", "2024-08-27 19:15:17.567991"], ["updated_at", "2024-08-27 19:15:17.567991"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question3"], ["test_id", 28], ["created_at", "2024-08-27 19:15:17.579236"], ["updated_at", "2024-08-27 19:15:17.579236"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (0.8ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 20]]
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 28]]
+  [1m[36mAnswer Load (0.6ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 61]]
+  [1m[36mGist Load (0.5ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 61]]
+  [1m[36mTestPassage Load (0.6ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 61]]
+  [1m[36mQuestion Destroy (1.3ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 61]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 62]]
+  [1m[36mGist Load (0.5ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 62]]
+  [1m[36mTestPassage Load (3.9ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 62]]
+  [1m[36mQuestion Destroy (0.9ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 62]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 63]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 63]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 63]]
+  [1m[36mQuestion Destroy (0.7ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 63]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 28]]
+  [1m[36mTest Destroy (0.9ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 28]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 29]]
+  [1m[36mTestPassage Load (0.6ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 29]]
+  [1m[36mTest Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 29]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 30]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 30]]
+  [1m[36mTest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 30]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 20]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 20]]
+  [1m[36mAdmin Destroy (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 20]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2024-08-27 19:15:46.739102"], ["updated_at", "2024-08-27 19:15:46.739102"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Alexey"], ["last_name", "Kasabutsky"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "category1"], ["created_at", "2024-08-27 19:15:46.759167"], ["updated_at", "2024-08-27 19:15:46.759167"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTest Load (0.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test1"], ["level", 0], ["LIMIT", 1]]
+  [1m[36mTest Create (19.3ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test1"], ["level", 0], ["category_id", 6], ["creator_id", 21], ["created_at", "2024-08-27 19:15:46.776797"], ["updated_at", "2024-08-27 19:15:46.776797"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test2"], ["level", 1], ["LIMIT", 1]]
+  [1m[36mTest Create (0.8ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test2"], ["level", 1], ["category_id", 6], ["creator_id", 21], ["created_at", "2024-08-27 19:15:46.823971"], ["updated_at", "2024-08-27 19:15:46.823971"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test3"], ["level", 2], ["LIMIT", 1]]
+  [1m[36mTest Create (0.7ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test3"], ["level", 2], ["category_id", 6], ["creator_id", 21], ["created_at", "2024-08-27 19:15:46.835964"], ["updated_at", "2024-08-27 19:15:46.835964"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question1"], ["test_id", 31], ["created_at", "2024-08-27 19:15:46.843097"], ["updated_at", "2024-08-27 19:15:46.843097"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question2"], ["test_id", 31], ["created_at", "2024-08-27 19:15:46.851661"], ["updated_at", "2024-08-27 19:15:46.851661"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question3"], ["test_id", 31], ["created_at", "2024-08-27 19:15:46.860033"], ["updated_at", "2024-08-27 19:15:46.860033"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1 ORDER BY "questions"."id" ASC LIMIT $2[0m  [["test_id", 31], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/test_passage.rb:49:in `next_question'
+  [1m[36mQuestion Load (16.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1 AND (id > 64) ORDER BY "questions"."id" ASC LIMIT $2[0m  [["test_id", 31], ["LIMIT", 1]]
+  ↳ app/models/test_passage.rb:49:in `next_question'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = $1[0m  [["type", "Admin"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Load (0.7ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."creator_id" = $1[0m  [["creator_id", 21]]
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 31]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 64]]
+  [1m[36mGist Load (0.6ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 64]]
+  [1m[36mTestPassage Load (0.7ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 64]]
+  [1m[36mQuestion Destroy (1.4ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 64]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 65]]
+  [1m[36mGist Load (0.5ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 65]]
+  [1m[36mTestPassage Load (0.5ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 65]]
+  [1m[36mQuestion Destroy (0.9ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 65]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 66]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."question_id" = $1[0m  [["question_id", 66]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."current_question_id" = $1[0m  [["current_question_id", 66]]
+  [1m[36mQuestion Destroy (0.8ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 66]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 31]]
+  [1m[36mTest Destroy (0.8ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 31]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 32]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 32]]
+  [1m[36mTest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 32]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 33]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."test_id" = $1[0m  [["test_id", 33]]
+  [1m[36mTest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "tests" WHERE "tests"."id" = $1[0m  [["id", 33]]
+  [1m[36mTestPassage Load (0.3ms)[0m  [1m[34mSELECT "test_passages".* FROM "test_passages" WHERE "test_passages"."user_id" = $1[0m  [["user_id", 21]]
+  [1m[36mGist Load (0.3ms)[0m  [1m[34mSELECT "gists".* FROM "gists" WHERE "gists"."user_id" = $1[0m  [["user_id", 21]]
+  [1m[36mAdmin Destroy (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 21]]
+  [1m[36mTRANSACTION (33.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  [1m[36mAdmin Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "first_name", "last_name", "username", "type") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING "id"[0m  [["email", "amsak@yandex.by"], ["created_at", "2024-08-27 19:16:33.334764"], ["updated_at", "2024-08-27 19:16:33.334764"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["first_name", "Alexey"], ["last_name", "Kasabutsky"], ["username", "bobcop"], ["type", "Admin"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "category1"], ["created_at", "2024-08-27 19:16:33.359919"], ["updated_at", "2024-08-27 19:16:33.359919"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTest Load (0.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test1"], ["level", 0], ["LIMIT", 1]]
+  [1m[36mTest Create (1.0ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test1"], ["level", 0], ["category_id", 7], ["creator_id", 22], ["created_at", "2024-08-27 19:16:33.377774"], ["updated_at", "2024-08-27 19:16:33.377774"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test2"], ["level", 1], ["LIMIT", 1]]
+  [1m[36mTest Create (0.8ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test2"], ["level", 1], ["category_id", 7], ["creator_id", 22], ["created_at", "2024-08-27 19:16:33.390112"], ["updated_at", "2024-08-27 19:16:33.390112"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tests" WHERE "tests"."title" = $1 AND "tests"."level" = $2 LIMIT $3[0m  [["title", "test3"], ["level", 2], ["LIMIT", 1]]
+  [1m[36mTest Create (0.7ms)[0m  [1m[32mINSERT INTO "tests" ("title", "level", "category_id", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test3"], ["level", 2], ["category_id", 7], ["creator_id", 22], ["created_at", "2024-08-27 19:16:33.402106"], ["updated_at", "2024-08-27 19:16:33.402106"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question1"], ["test_id", 34], ["created_at", "2024-08-27 19:16:33.410025"], ["updated_at", "2024-08-27 19:16:33.410025"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (21.0ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question2"], ["test_id", 34], ["created_at", "2024-08-27 19:16:33.419908"], ["updated_at", "2024-08-27 19:16:33.419908"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question3"], ["test_id", 34], ["created_at", "2024-08-27 19:16:33.455748"], ["updated_at", "2024-08-27 19:16:33.455748"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question1"], ["test_id", 35], ["created_at", "2024-08-27 19:16:33.464227"], ["updated_at", "2024-08-27 19:16:33.464227"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question2"], ["test_id", 35], ["created_at", "2024-08-27 19:16:33.475863"], ["updated_at", "2024-08-27 19:16:33.475863"]]
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question3"], ["test_id", 35], ["created_at", "2024-08-27 19:16:33.488975"], ["updated_at", "2024-08-27 19:16:33.488975"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question1"], ["test_id", 36], ["created_at", "2024-08-27 19:16:33.498874"], ["updated_at", "2024-08-27 19:16:33.498874"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question2"], ["test_id", 36], ["created_at", "2024-08-27 19:16:33.507414"], ["updated_at", "2024-08-27 19:16:33.507414"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("body", "test_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "question3"], ["test_id", 36], ["created_at", "2024-08-27 19:16:33.519728"], ["updated_at", "2024-08-27 19:16:33.519728"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (46.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 67]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (65.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 67], ["created_at", "2024-08-27 19:16:33.600961"], ["updated_at", "2024-08-27 19:16:33.600961"]]
+  [1m[36mTRANSACTION (31.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 67]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (1.2ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 67], ["created_at", "2024-08-27 19:16:33.714266"], ["updated_at", "2024-08-27 19:16:33.714266"]]
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 67]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (1.1ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 67], ["created_at", "2024-08-27 19:16:33.745505"], ["updated_at", "2024-08-27 19:16:33.745505"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 67]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 67], ["created_at", "2024-08-27 19:16:33.769223"], ["updated_at", "2024-08-27 19:16:33.769223"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 68]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 68], ["created_at", "2024-08-27 19:16:33.780917"], ["updated_at", "2024-08-27 19:16:33.780917"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 68]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 68], ["created_at", "2024-08-27 19:16:33.796642"], ["updated_at", "2024-08-27 19:16:33.796642"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 68]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 68], ["created_at", "2024-08-27 19:16:33.810662"], ["updated_at", "2024-08-27 19:16:33.810662"]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 68]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 68], ["created_at", "2024-08-27 19:16:33.826213"], ["updated_at", "2024-08-27 19:16:33.826213"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 69]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 69], ["created_at", "2024-08-27 19:16:33.840118"], ["updated_at", "2024-08-27 19:16:33.840118"]]
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 69]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 69], ["created_at", "2024-08-27 19:16:33.857931"], ["updated_at", "2024-08-27 19:16:33.857931"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 69]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 69], ["created_at", "2024-08-27 19:16:33.868383"], ["updated_at", "2024-08-27 19:16:33.868383"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 69]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 69], ["created_at", "2024-08-27 19:16:33.878368"], ["updated_at", "2024-08-27 19:16:33.878368"]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 70]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 70], ["created_at", "2024-08-27 19:16:33.895011"], ["updated_at", "2024-08-27 19:16:33.895011"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 70]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 70], ["created_at", "2024-08-27 19:16:33.908212"], ["updated_at", "2024-08-27 19:16:33.908212"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 70]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (22.9ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 70], ["created_at", "2024-08-27 19:16:33.920263"], ["updated_at", "2024-08-27 19:16:33.920263"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 70]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 70], ["created_at", "2024-08-27 19:16:33.957233"], ["updated_at", "2024-08-27 19:16:33.957233"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 71]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (13.7ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 71], ["created_at", "2024-08-27 19:16:33.973069"], ["updated_at", "2024-08-27 19:16:33.973069"]]
+  [1m[36mTRANSACTION (14.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 71]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 71], ["created_at", "2024-08-27 19:16:34.009912"], ["updated_at", "2024-08-27 19:16:34.009912"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 71]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 71], ["created_at", "2024-08-27 19:16:34.021528"], ["updated_at", "2024-08-27 19:16:34.021528"]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 71]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 71], ["created_at", "2024-08-27 19:16:34.040839"], ["updated_at", "2024-08-27 19:16:34.040839"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 72]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 72], ["created_at", "2024-08-27 19:16:34.053787"], ["updated_at", "2024-08-27 19:16:34.053787"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 72]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 72], ["created_at", "2024-08-27 19:16:34.072145"], ["updated_at", "2024-08-27 19:16:34.072145"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 72]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 72], ["created_at", "2024-08-27 19:16:34.082924"], ["updated_at", "2024-08-27 19:16:34.082924"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 72]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 72], ["created_at", "2024-08-27 19:16:34.095254"], ["updated_at", "2024-08-27 19:16:34.095254"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 73]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 73], ["created_at", "2024-08-27 19:16:34.106887"], ["updated_at", "2024-08-27 19:16:34.106887"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 73]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 73], ["created_at", "2024-08-27 19:16:34.118604"], ["updated_at", "2024-08-27 19:16:34.118604"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 73]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 73], ["created_at", "2024-08-27 19:16:34.130551"], ["updated_at", "2024-08-27 19:16:34.130551"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 73]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 73], ["created_at", "2024-08-27 19:16:34.144827"], ["updated_at", "2024-08-27 19:16:34.144827"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 74]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 74], ["created_at", "2024-08-27 19:16:34.156374"], ["updated_at", "2024-08-27 19:16:34.156374"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 74]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 74], ["created_at", "2024-08-27 19:16:34.168799"], ["updated_at", "2024-08-27 19:16:34.168799"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 74]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (2.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 74], ["created_at", "2024-08-27 19:16:34.184532"], ["updated_at", "2024-08-27 19:16:34.184532"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 74]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 74], ["created_at", "2024-08-27 19:16:34.198828"], ["updated_at", "2024-08-27 19:16:34.198828"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 75]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer1"], ["correct", false], ["question_id", 75], ["created_at", "2024-08-27 19:16:34.209009"], ["updated_at", "2024-08-27 19:16:34.209009"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 75]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer2"], ["correct", true], ["question_id", 75], ["created_at", "2024-08-27 19:16:34.219628"], ["updated_at", "2024-08-27 19:16:34.219628"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 75]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer3"], ["correct", false], ["question_id", 75], ["created_at", "2024-08-27 19:16:34.234314"], ["updated_at", "2024-08-27 19:16:34.234314"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 75]]
+  ↳ app/models/answer.rb:14:in `limit_answers'
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "answer4"], ["correct", false], ["question_id", 75], ["created_at", "2024-08-27 19:16:34.244936"], ["updated_at", "2024-08-27 19:16:34.244936"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
