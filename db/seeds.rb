@@ -23,10 +23,9 @@ tests.each do |test|
   Question.find_or_create_by!([{ body: 'question1', test: },
                                { body: 'question2', test: },
                                { body: 'question3', test: }])
-  TestPassage.find_or_create_by!(test: test, current_question: test.questions.first, correct_questions: 0)
 end
-                  
-Question.all.each do |question|
+
+Question.all.each do |question|    
   Answer.find_or_create_by!([{ body: 'answer1', correct: false, question: question },
                              { body: 'answer2', correct: true, question: question },
                              { body: 'answer3', correct: false, question: question },
