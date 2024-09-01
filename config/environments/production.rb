@@ -76,7 +76,7 @@ Rails.application.configure do
     port: 465,
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
-    domain: "yandex.com"
+    domain: "yandex.com",
     authentication: 'plain',
     enable_starttls_auto: true
   }
