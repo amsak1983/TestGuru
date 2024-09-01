@@ -27,6 +27,7 @@ end
 
 Question.all.each do |question|    
   Answer.create!([{ body: 'answer1', correct: false, question: question },
+                            { body: 'answer2', correct: true, question: question },
                             { body: 'answer3', correct: false, question: question },
                             { body: 'answer4', correct: false, question: question }])
 end

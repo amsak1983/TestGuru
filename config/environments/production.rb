@@ -68,12 +68,15 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'https//testguru-qoy7.onrender.com' }
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp-relay.sendinblue.com',
-    port: 587,
+    tls: true,
+    address: 'smtp.yandex.by',
+    port: 465,
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
+    domain: "yandex.by"
     authentication: 'plain',
     enable_starttls_auto: true
   }
