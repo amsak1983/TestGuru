@@ -9,3 +9,8 @@ ru:
   new_answer: "Создать Ответ"
   start: "Начать"
   all_tests: "Все Тесты"
+  send: "Отправить"
+  login: "Войти"
+  logout: "Выйти"
+  signup: "Зарегистрироваться"
+  admin_panel: "Админ Алексей"

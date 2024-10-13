@@ -1,5 +1,6 @@
-class Admin::TestsController < Admin::BaseController
+# frozen_string_literal: true
 
+class Admin::TestsController < Admin::BaseController
   before_action :set_tests, only: %i[index update_inline]
   before_action :find_test, only: %i[show edit update destroy start update_inline]
 
@@ -37,7 +38,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to [:admin, @test], notice: 'Test updated!'
+      redirect_to [:admin, @test], notice: t('.updated')
     else
       render :edit
     end
@@ -45,7 +46,7 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to admin_tests_path, notice: 'Test deleted!'
+    redirect_to admin_tests_path, notice: t('.deleted')
   end
 
   private

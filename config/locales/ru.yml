@@ -36,6 +36,9 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно завершён!"
+      success: 'Успешно!'
+      fail: "Неудачно"
+      percentage: "Ваш процент прохождения: "
     show:
       header: "Прохождение %{title} теста"
       of: "из"
@@ -55,6 +58,11 @@ ru:
      level: "Уровень"
      count: "Количество"
      actions: "Действия"
+
+  feedbacks:
+    message: "Сообщение"
+    success: "Сообщение успешно отправлено!"
+    feedback: "Связаться"
 
   admin:
     tests:
@@ -77,6 +85,10 @@ ru:
         category_id: "Категория"
         creator_id: "Создатель"
         questions: "Вопросы"
+      update:
+        updated: "Тест обновлён!"
+      destroy:
+        deleted: "Тест удалён!"
       form_inline:
         submit: 'OK'
 
@@ -86,14 +98,26 @@ ru:
       show:
         header: "Вопрос"
         answers: "Ответы"
+      create:
+        success: "Вопрос успешно создан!"
+      update:
+        updated: "Вопрос обновлён!"
+      destroy:
+        deleted: "Вопрос удалён!"
 
     answers:
       show:
         header: "Вопрос"
         answer: "Ответ"
         correct: "Верный"
+      create:
+        success: "Ответ успешно создан!"
       edit:
         header: "Изменение Ответа"
+      update:
+        updated: "Ответ обновлён!"
+      destroy:
+        deleted: "Ответ удалён!"
 
   test_mailer:
     completed_test:
