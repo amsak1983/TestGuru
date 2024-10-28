@@ -73,8 +73,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp-relay.brevo.com',
     port: 587,
-    user_name: ENV['7b3107002@smtp-brevo.com'],
-    password: ENV['rc0BGALMg4kTZfU7'],
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true
   }
