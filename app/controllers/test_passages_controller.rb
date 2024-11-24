@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TestPassagesController < ApplicationController
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :find_test_passage, only: %i[show update result]
 
   rescue_from NoMethodError, with: :rescue_with_no_method_error
 
@@ -26,7 +26,7 @@ class TestPassagesController < ApplicationController
     render plain: "You didn't choose an answer"
   end
 
-  def set_test_passage
+  def find_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
 end

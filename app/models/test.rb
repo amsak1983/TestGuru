@@ -16,6 +16,7 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :ready, -> { where(status: true) }
 
   scope :tests_of_category, lambda { |category_title|
                               joins(:category)

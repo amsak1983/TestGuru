@@ -5,6 +5,12 @@
   </td>
   <td class="align-middle"><%= test_level(test) %></td>
   <td class="align-middle"><%= test.questions.count %></td>
+  <td>
+    <%= button_to test.status ? "Mark as not ready" : "Mark as ready",
+                  update_status_admin_test_path(test),
+                  method: :patch,
+                  class: test_status ? "btn btn-danger status-btn" : "btn btn-danger status-btn"%>
+  <td>
   <td class="align-middle"><%= link_to t('show'), admin_test_path(test), class: 'text-decoration-none' %></td>
   <td class="align-middle">
     <%= link_to t('edit'), edit_admin_test_path(test),

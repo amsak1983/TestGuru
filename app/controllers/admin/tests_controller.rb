@@ -2,13 +2,11 @@
 
 class Admin::TestsController < Admin::BaseController
   before_action :set_tests, only: %i[index update_inline]
-  before_action :find_test, only: %i[show edit update destroy start update_inline]
+  before_action :find_test, only: %i[show edit update destroy start update_inline update_status]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-  def index
-    @tests = Test.all
-  end
+  def index; end
 
   def show; end
 
@@ -27,7 +25,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = current_user.created_tests.build(test_params)
+    @test = current_user.created_tests.new(test_params)
 
     if @test.save
       redirect_to [:admin, @test], notice: t('.success')
@@ -42,6 +40,15 @@ class Admin::TestsController < Admin::BaseController
     else
       render :edit
     end
+  end
+
+  def update_status
+    if @test.update(status: !@test.status)
+      flash[:notice] = "Status updated"
+    else
+      flash[:alert] = "Something went wrong"
+    end
+    redirect_to admin_tests_path
   end
 
   def destroy
