@@ -20182,3 +20182,158 @@ Filter chain halted as :require_no_authentication rendered or redirected
 Completed 302 Found in 13ms (ActiveRecord: 0.5ms | Allocations: 1826)
 
 
+Started GET "/" for 127.0.0.1 at 2024-12-08 14:37:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (39.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TestsController#index as HTML
+Completed 401 Unauthorized in 1178ms (ActiveRecord: 0.0ms | Allocations: 33860)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2024-12-08 14:37:16 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 36.9ms | Allocations: 544)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 223.3ms | Allocations: 3486)
+  Rendered shared/_nav.html.erb (Duration: 23.4ms | Allocations: 629)
+  Rendered shared/_flash.html.erb (Duration: 64.7ms | Allocations: 286)
+  Rendered shared/_footer.html.erb (Duration: 85.1ms | Allocations: 294)
+  Rendered layout layouts/application.html.erb (Duration: 438.2ms | Allocations: 5844)
+Completed 200 OK in 1336ms (Views: 659.7ms | ActiveRecord: 526.4ms | Allocations: 21902)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-12-08 14:37:49 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amsaks@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (91.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "amsaks@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 2015ms (ActiveRecord: 97.6ms | Allocations: 6335)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-08 14:37:51 +0300
+Processing by TestsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tests/index.html.erb within layouts/application
+  [1m[36mTest Load (48.9ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."status" = $1[0m  [["status", true]]
+  ↳ app/views/tests/index.html.erb:18
+  Rendered collection of templates [0 times] (Duration: 0.2ms | Allocations: 31)
+  Rendered tests/index.html.erb within layouts/application (Duration: 109.3ms | Allocations: 1570)
+  Rendered shared/_nav.html.erb (Duration: 2.0ms | Allocations: 340)
+  Rendered shared/_flash.html.erb (Duration: 0.8ms | Allocations: 100)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 93)
+  Rendered layout layouts/application.html.erb (Duration: 157.5ms | Allocations: 2780)
+Completed 200 OK in 662ms (Views: 127.5ms | ActiveRecord: 52.6ms | Allocations: 8727)
+
+
+Started DELETE "/gurus/log_out" for 127.0.0.1 at 2024-12-08 14:38:11 +0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (14.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 127ms (ActiveRecord: 14.7ms | Allocations: 2989)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-08 14:38:12 +0300
+Processing by TestsController#index as HTML
+Completed 401 Unauthorized in 16ms (ActiveRecord: 0.0ms | Allocations: 368)
+
+
+Started GET "/gurus/log_in" for 127.0.0.1 at 2024-12-08 14:38:12 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 89)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 67.4ms | Allocations: 1104)
+  Rendered shared/_nav.html.erb (Duration: 22.3ms | Allocations: 241)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 83)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 70)
+  Rendered layout layouts/application.html.erb (Duration: 123.0ms | Allocations: 2073)
+Completed 200 OK in 141ms (Views: 139.8ms | ActiveRecord: 0.0ms | Allocations: 2850)
+
+
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-12-08 14:38:24 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amsak@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "amsak@yandex.by"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://127.0.0.1:3000/admin/tests
+Completed 303 See Other in 1355ms (ActiveRecord: 2.0ms | Allocations: 7056)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-12-08 14:38:26 +0300
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 40.2ms | Allocations: 238)
+  [1m[36mTest Load (0.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:24
+  Rendered admin/tests/_form_inline.html.erb (Duration: 4.2ms | Allocations: 785)
+  [1m[36mQuestion Count (117.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 47]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 323.6ms | Allocations: 12021)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 471.4ms | Allocations: 17532)
+  Rendered layout layouts/admin.html.erb (Duration: 474.3ms | Allocations: 17618)
+Completed 500 Internal Server Error in 506ms (ActiveRecord: 124.4ms | Allocations: 20087)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `test_status' for #<ActionView::Base:0x00000000010e50>
+
+                  class: test_status ? "btn btn-danger status-btn" : "btn btn-danger status-btn");@output_buffer.safe_append='
+                         ^^^^^^^^^^^
+Did you mean?  test_iteration):
+     9:     <%= button_to test.status ? "Mark as not ready" : "Mark as ready",
+    10:                   update_status_admin_test_path(test),
+    11:                   method: :patch,
+    12:                   class: test_status ? "btn btn-danger status-btn" : "btn btn-danger status-btn"%>
+    13:   <td>
+    14:   <td class="align-middle"><%= link_to t('show'), admin_test_path(test), class: 'text-decoration-none' %></td>
+    15:   <td class="align-middle">
+  
+app/views/admin/tests/_test.html.erb:12
+app/views/admin/tests/index.html.erb:24
+Started POST "/gurus/log_in" for 127.0.0.1 at 2024-12-08 15:01:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amsak@yandex.by", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (21.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/admin/tests
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 1093ms (ActiveRecord: 262.5ms | Allocations: 52803)
+
+
+Started GET "/admin/tests" for 127.0.0.1 at 2024-12-08 15:01:41 +0300
+Processing by Admin::TestsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/tests/index.html.erb within layouts/admin
+  Rendered shared/_errors.html.erb (Duration: 11.4ms | Allocations: 252)
+  [1m[36mTest Load (9.3ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  ↳ app/views/admin/tests/index.html.erb:24
+  Rendered admin/tests/_form_inline.html.erb (Duration: 34.0ms | Allocations: 1068)
+  [1m[36mQuestion Count (14.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."test_id" = $1[0m  [["test_id", 47]]
+  ↳ app/views/admin/tests/_test.html.erb:7
+  Rendered collection of admin/tests/_test.html.erb [3 times] (Duration: 428.1ms | Allocations: 12621)
+  Rendered admin/tests/index.html.erb within layouts/admin (Duration: 575.6ms | Allocations: 19279)
+  Rendered layout layouts/admin.html.erb (Duration: 577.4ms | Allocations: 19376)
+Completed 500 Internal Server Error in 782ms (ActiveRecord: 32.8ms | Allocations: 27779)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `test_status' for #<ActionView::Base:0x00000000010950>
+
+                  class: test_status ? "btn btn-danger status-btn" : "btn btn-danger status-btn");@output_buffer.safe_append='
+                         ^^^^^^^^^^^
+Did you mean?  test_iteration):
+     9:     <%= button_to test.status ? "Mark as not ready" : "Mark as ready",
+    10:                   update_status_admin_test_path(test),
+    11:                   method: :patch,
+    12:                   class: test_status ? "btn btn-danger status-btn" : "btn btn-danger status-btn"%>
+    13:   <td>
+    14:   <td class="align-middle"><%= link_to t('show'), admin_test_path(test), class: 'text-decoration-none' %></td>
+    15:   <td class="align-middle">
+  
+app/views/admin/tests/_test.html.erb:12
+app/views/admin/tests/index.html.erb:24
