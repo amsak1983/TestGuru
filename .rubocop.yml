@@ -1,0 +1,140 @@
+inherit_mode:
+  merge:
+    - Exclude
+
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7.5
+  Exclude:
+  - 'bin/**/*'
+  - 'db/*schema.rb'
+  - 'node_modules/**/*'
+  - 'vendor/**/*'
+  - '.git/**/*'
+
+Layout/EndOfLine:
+  EnforcedStyle: native
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Layout/LineLength:
+  Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
+Layout/TrailingWhitespace:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: false
+
+Lint/MissingSuper:
+  Exclude:
+    - "spec/**/*"
+    - "app/services/**/*"
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+Lint/SuppressedException:
+  Enabled: false
+
+Naming/BinaryOperatorParameterName:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - 'Gemfile'
+    - 'db/**/*'
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Max: 30
+  IgnoredMethods: ['describe', 'context']
+  Exclude:
+    - 'app/admin*/**/*'
+    - 'config/environments/*.rb'
+    - 'config/initializers/*.rb'
+    - 'config/routes.rb'
+    - '**/*.rake'
+    - 'db/**/*.rb'
+    - 'Gemfile'
+
+Metrics/ClassLength:
+  Max: 1500
+
+Metrics/CyclomaticComplexity:
+  Max: 9
+  Exclude:
+  - 'db/migrate/*'
+
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - 'db/**/*'
+
+Metrics/ModuleLength:
+  Max: 1500
+
+Metrics/PerceivedComplexity:
+  Exclude:
+  - 'db/migrate/*'
+
+Style/AsciiComments:
+  Enabled: true
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/CollectionMethods:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FetchEnvVar:
+  Enabled: false
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: false
+
+Style/PreferredHashMethods:
+  Enabled: false
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/SymbolArray:
+  Enabled: true

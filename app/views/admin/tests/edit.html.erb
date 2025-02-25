@@ -1,5 +1,9 @@
-<h1><%= t('.header', tittle: @test.title) %></h1>
-
-<%= render 'form' %>
-
-<%= link_to t('back'), admin_tests_path %>
+<!-- app/views/admin/tests/edit.html.erb -->
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-0"><%= t('admin.tests.edit') %></h5>
+  </div>
+  <div class="card-body">
+    <%= render 'form', test: @test %>
+  </div>
+</div>

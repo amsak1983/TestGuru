@@ -1,5 +1,8 @@
-<h1><%= t('.header', title: @question.test.title) %></h1>
-
-<%= render 'form' %>
-
-<%= link_to t('back'), admin_test_path(@question.test_id) %>
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-0"><%= t('admin.questions.edit') %></h5>
+  </div>
+  <div class="card-body">
+    <%= render 'form', question: @question %>
+  </div>
+</div>

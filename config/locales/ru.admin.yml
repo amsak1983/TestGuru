@@ -1,0 +1,89 @@
+# config/locales/ru.yml
+ru:
+  admin:
+    labels:
+      title: "Панель администратора"
+      dashboard: "Панель управления"
+      categories: "Категории"
+      tests: "Тесты"
+      users: "Пользователи"
+      gists: "Гисты"
+      logout: "Выйти"
+      unauthorized: "У вас нет прав для доступа к этой странице"
+      view_all: "Посмотреть все"
+      recent_tests: "Недавние тесты"
+      level: "Уровень"
+      tests_count: "Тесты"
+      actions: "Действия"
+      save: "Сохранить"
+      cancel: "Отмена"
+      edit: "Редактировать"
+      delete: "Удалить"
+      show: "Просмотреть"
+      confirm_delete: "Вы уверены, что хотите удалить этот элемент?"
+      test_title: "Название теста"
+      category: "Категория"
+      status: "Статус"
+      questions_count: "Количество вопросов"
+
+    categories:
+      title: "Название"
+      new: "Новая категория"
+      edit: "Редактировать категорию"
+      created: "Категория успешно создана"
+      updated: "Категория успешно обновлена"
+      destroyed: "Категория успешно удалена"
+
+    tests:
+      new: "Новый тест"
+      edit: "Редактировать тест"
+      created: "Тест успешно создан"
+      updated: "Тест успешно обновлен"
+      destroyed: "Тест успешно удален"
+      status_updated: "Статус теста успешно обновлен"
+      published: "Опубликован"
+      select_category: "Выберите категорию"
+      not_found: "Тест не найден"
+      creator: "Создатель"
+    users:
+      username: "Имя пользователя"
+      email: "Email"
+      new: "Новый пользователь"
+      edit: "Редактировать пользователя"
+      created: "Пользователь успешно создан"
+      updated: "Пользователь успешно обновлен"
+      destroyed: "Пользователь успешно удален"
+      passed_tests: "Пройденные тесты"
+
+    tests:
+      levels:
+        easy: "Легкий"
+        medium: "Средний"
+        hard: "Сложный"
+      status:
+        "true": "Опубликован"
+        "false": "Черновик"
+      title: "Тесты"
+      new: "Новый тест"
+      created: "Тест успешно создан."
+      updated: "Тест успешно обновлен."
+      destroyed: "Тест успешно удален."
+      not_found: "Тест не найден."
+      back: "Назад"
+      published: "Опубликован"
+      select_category: "Выберите категорию"
+      edit: "Редактировать тест"
+
+    questions:
+      body: "Текст вопроса"
+      new: "Новый вопрос"
+      title: "Вопросы"
+      created: "Вопрос успешно создан."
+      updated: "Вопрос успешно обновлен."
+      destroyed: "Вопрос успешно удален."
+      not_found: "Вопрос не найден."
+
+    answers:
+      title: "Ответы"
+      correct: "Правильный"
+      body: 'Ответ'

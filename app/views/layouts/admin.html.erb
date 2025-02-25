@@ -1,26 +1,62 @@
-<<!DOCTYPE html>
+<!-- app/views/layouts/admin.labels.html.erb -->
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-ti-fit=no">
-
-    <title>Admin Alexey</title>
-
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-  </head>
-
-  <body>
-    <%= render 'admin/nav' %>
-
-    <div class="container">
-      <%= render 'shared/flash' %>
-      <%= yield %>
-      <%= render 'shared/footer' %>
+<head>
+  <title><%= t('admin.labels.title') %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="<%= admin_root_path %>">
+      <%= t('admin.labels.title') %>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <%= link_to t('admin.labels.dashboard'), admin_root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('admin.labels.categories'), admin_categories_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('admin.labels.tests'), admin_tests_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('admin.labels.users'), admin_users_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('admin.labels.gists'), admin_gists_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to t('admin.labels.logout'), destroy_user_session_path,
+                      method: :delete, class: "nav-link" %>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
 
-  </body>
+<div class="container-fluid mt-4">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-<%= bootstrap_flash_class(type) %> alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"
+              aria-label="Close"></button>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</div>
+</body>
 </html>

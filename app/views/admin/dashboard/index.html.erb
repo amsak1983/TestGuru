@@ -1,0 +1,78 @@
+<!-- app/views/admin/dashboard/index.html.erb -->
+<div class="row">
+  <div class="col-md-3">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-header"><%= t('admin.labels.categories') %></div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @categories_count %></h5>
+        <%= link_to t('admin.labels.view_all'), admin_categories_path,
+                    class: "btn btn-light" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-header"><%= t('admin.labels.tests') %></div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @tests_count %></h5>
+        <%= link_to t('admin.labels.view_all'), admin_tests_path,
+                    class: "btn btn-light" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-white bg-info mb-3">
+      <div class="card-header"><%= t('admin.labels.users') %></div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @users_count %></h5>
+        <%= link_to t('admin.labels.view_all'), admin_users_path,
+                    class: "btn btn-light" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-white bg-warning mb-3">
+      <div class="card-header"><%= t('admin.labels.gists') %></div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @gists_count %></h5>
+        <%= link_to t('admin.labels.view_all'), admin_gists_path,
+                    class: "btn btn-light" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <%= t('admin.labels.recent_tests') %>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= t('admin.labels.test_title') %></th>
+        <th><%= t('admin.labels.category') %></th>
+        <th><%= t('admin.labels.level') %></th>
+        <th><%= t('admin.labels.status') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @recent_tests.each do |test| %>
+        <tr>
+          <td><%= test.title %></td>
+          <td><%= test.category.title %></td>
+          <td><%= t("tests.levels.#{test.level}") %></td>
+          <td>
+              <span class="badge bg-<%= test.status ? 'success' : 'danger' %>">
+                <%= t("tests.status.#{test.status}") %>
+              </span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

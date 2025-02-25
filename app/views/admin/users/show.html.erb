@@ -1,0 +1,44 @@
+<!-- app/views/admin/users/show.html.erb -->
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0"><%= @user.username %></h5>
+    <div>
+      <%= link_to t('admin.labels.edit'), edit_admin_user_path(@user),
+                  class: "btn btn-warning me-2" %>
+      <%= link_to t('admin.labels.delete'), admin_user_path(@user),
+                  method: :delete,
+                  data: { confirm: t('admin.labels.confirm_delete') },
+                  class: "btn btn-danger" %>
+    </div>
+  </div>
+  <div class="card-body">
+    <p>
+      <strong><%= t('admin.users.email') %>:</strong>
+      <%= @user.email %>
+    </p>
+    <p>
+      <strong><%= t('admin.tests_count') %>:</strong>
+      <%= @user.tests.count %>
+    </p>
+
+    <h5 class="mt-4"><%= t('admin.users.passed_tests') %></h5>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= t('admin.test_title') %></th>
+        <th><%= t('admin.category') %></th>
+        <th><%= t('admin.level') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @tests.each do |test| %>
+        <tr>
+          <td><%= test.title %></td>
+          <td><%= test.category.title %></td>
+          <td><%= t("tests.levels.#{test.level}") %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

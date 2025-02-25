@@ -1,0 +1,39 @@
+<!-- app/views/admin/categories/index.html.erb -->
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0"><%= t('admin.labels.categories') %></h5>
+    <%= link_to t('admin.categories.new'), new_admin_category_path,
+                class: "btn btn-primary" %>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= t('admin.categories.title') %></th>
+        <th><%= t('admin.labels.tests_count') %></th>
+        <th><%= t('admin.labels.actions') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.title %></td>
+          <td><%= category.tests.count %></td>
+          <td>
+            <%= link_to t('admin.labels.show'), admin_category_path(category),
+                        class: "btn btn-sm btn-info" %>
+            <%= link_to t('admin.labels.edit'), edit_admin_category_path(category),
+                        class: "btn btn-sm btn-warning" %>
+            <!-- app/views/admin/categories/index.html.erb (продолжение) -->
+            <%= link_to t('admin.labels.delete'), admin_category_path(category),
+                        method: :delete,
+                        data: { confirm: t('admin.labels.confirm_delete') },
+                        class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= paginate @categories %>
+  </div>
+</div>

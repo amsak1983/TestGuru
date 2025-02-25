@@ -22,7 +22,7 @@ ru:
       question:
         body: "Содержимое вопроса"
       answer:
-        body: "Вопрос"
+        body: "Ответ"
         correct: "Верный"
 
   shared:
@@ -64,7 +64,7 @@ ru:
     success: "Сообщение успешно отправлено!"
     feedback: "Связаться"
 
-  admin:
+  admin_:
     tests:
       new:
         header: "Создать Тест"

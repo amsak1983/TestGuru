@@ -1,0 +1,20 @@
+<!-- app/views/admin/categories/show.html.erb -->
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0"><%= @category.title %></h5>
+    <div>
+      <%= link_to t('admin.labels.edit'), edit_admin_category_path(@category),
+                  class: "btn btn-warning me-2" %>
+      <%= link_to t('admin.labels.delete'), admin_category_path(@category),
+                  method: :delete,
+                  data: { confirm: t('admin.labels.confirm_delete') },
+                  class: "btn btn-danger" %>
+    </div>
+  </div>
+  <div class="card-body">
+    <p>
+      <strong><%= t('admin.labels.tests_count') %>:</strong>
+      <%= @category.tests.count %>
+    </p>
+  </div>
+</div>

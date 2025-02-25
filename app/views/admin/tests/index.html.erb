@@ -1,27 +1,56 @@
-<div class="row justify-content-center">
-  <div class="col col-md-10">
-    <h1><%= t('.header') %></h1>
-
-    <p>
-      <%= link_to t('new_test'), new_admin_test_path, class: 'text-decoration-none' %>
-    </p>
-
-    <%= render 'shared/errors', resource: @test %>
-
-    <table class="table">
+<!-- app/views/admin/tests/index.html.erb -->
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0"><%= t('admin.labels.tests') %></h5>
+    <%= link_to t('admin.tests.new'), new_admin_test_path,
+                class: "btn btn-primary" %>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
       <tr>
-        <th class="sort-by-title pointer">
-          <%= t('.title') %>
-          <%= octicon 'arrow-up', class: 'text-primary hide' %>
-          <%= octicon 'arrow-down', class: 'text-primary hide' %>
-        </th>
-        <th><%= t('.level') %></th>
-        <th><%= t('.count') %></th>
-        <th>Status</th>
-        <th colspan="4"><%= t('.actions') %></th>
+        <th><%= t('admin.labels.test_title') %></th>
+        <th><%= t('admin.labels.category') %></th>
+        <th><%= t('admin.labels.level') %></th>
+        <th><%= t('admin.labels.status') %></th>
+        <th><%= t('admin.labels.questions_count') %></th>
+        <th><%= t('admin.labels.actions') %></th>
       </tr>
-
-      <%= render @tests %>
+      </thead>
+      <tbody>
+      <% @tests.each do |test| %>
+        <tr data-controller="inline-edit" data-test-id="<%= test.id %>">
+          <td data-inline-edit-target="title">
+            <%= test.title %>
+            <input type="text"
+                   class="form-control d-none"
+                   data-inline-edit-target="titleInput"
+                   value="<%= test.title %>">
+          </td>
+          <td><%= test.category.title %></td>
+          <td><%= t("tests.levels.#{test.level}") %></td>
+          <td>
+            <%= link_to update_status_admin_test_path(test),
+                        method: :patch,
+                        class: "badge bg-#{test.status ? 'success' : 'danger'}" do %>
+              <%= t("tests.status.#{test.status}") %>
+            <% end %>
+          </td>
+          <td><%= test.questions.count %></td>
+          <td>
+            <%= link_to t('admin.labels.show'), admin_test_path(test),
+                        class: "btn btn-sm btn-info" %>
+            <%= link_to t('admin.labels.edit'), edit_admin_test_path(test),
+                        class: "btn btn-sm btn-warning" %>
+            <%= link_to t('admin.labels.delete'), admin_test_path(test),
+                        method: :delete,
+                        data: { confirm: t('admin.labels.confirm_delete') },
+                        class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
     </table>
+    <%= paginate @tests %>
   </div>
 </div>

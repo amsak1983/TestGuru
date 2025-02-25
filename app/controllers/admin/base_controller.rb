@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
-class Admin::BaseController < ApplicationController
-  layout 'admin'
+module Admin
+  class BaseController < ApplicationController
+    layout 'admin'
 
-  before_action :authenticate_user!
-  before_action :admin_required!
+    before_action :authenticate_user!
+    before_action :authorize_admin!
 
-  private
+    private
 
-  def admin_required!
-    redirect_to root_path, alert: 'You are not authorized to view this page!' unless current_user.is_a?(Admin)
+    def authorize_admin!
+      redirect_to root_path, alert: t('admin.labels.unauthorized') unless current_user.admin?
+    end
   end
 end

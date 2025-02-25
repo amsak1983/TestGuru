@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  def bootstrap_flash_class(type)
+    case type
+    when 'notice' then 'success'
+    when 'alert' then 'danger'
+    else type
+    end
+  end
+
   def current_year
     Time.current.year
   end

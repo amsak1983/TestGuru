@@ -1,19 +1,49 @@
-<%= form_with model: [:admin, @test], local: true do |form| %>
-  <%= render 'shared/errors', resource: @test %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title, id: :test_title %>
-  </p>
+<!-- app/views/admin/tests/_form.html.erb -->
+<%= form_with model: [:admin, test],
+              data: { controller: "form-validation" } do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title,
+                        class: "form-control",
+                        data: { form_validation_target: "input" } %>
+    <% test.errors.full_messages_for(:title).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
 
-  <p>
-    <%= form.label :level %><br>
-    <%= form.text_field :level, id: :test_level %>
-  </p>
+  <div class="mb-3">
+    <%= form.label :category_id, class: "form-label" %>
+    <%= form.collection_select :category_id,
+                               Category.sort_by_title,
+                               :id,
+                               :title,
+                               { prompt: t('admin.tests.select_category') },
+                               class: "form-select" %>
+    <% test.errors.full_messages_for(:category_id).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
 
-  <p>
-    <%= form.label :category_id %><br>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
-  </p>
+  <div class="mb-3">
+    <%= form.label :level, class: "form-label" %>
+    <%= form.select :level,
+                    Test.levels.map { |k, v| [t("tests.levels.#{k}"), k] },
+                    {},
+                    class: "form-select" %>
+    <% test.errors.full_messages_for(:level).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
 
-  <p><%= form.submit %></p>
+  <div class="mb-3 form-check">
+    <%= form.check_box :status, class: "form-check-input" %>
+    <%= form.label :status, t('admin.tests.published'),
+                   class: "form-check-label" %>
+  </div>
+
+  <div class="d-flex gap-2">
+    <%= form.submit t('admin.labels.save'), class: "btn btn-primary" %>
+    <%= link_to t('admin.labels.cancel'), admin_tests_path,
+                class: "btn btn-secondary" %>
+  </div>
 <% end %>

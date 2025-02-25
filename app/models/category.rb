@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
+# app/models/category.rb
 class Category < ApplicationRecord
-  default_scope { order(:title) }
-
   has_many :tests, dependent: :destroy
-
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
+  scope :sort_by_title, -> { order(:title) }
 end

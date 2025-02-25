@@ -1,0 +1,68 @@
+# config/locales/en.yml
+en:
+  admin:
+    labels:
+      title: "Admin Panel"
+      dashboard: "Dashboard"
+      categories: "Categories"
+      tests: "Tests"
+      users: "Users"
+      gists: "Gists"
+      logout: "Logout"
+      unauthorized: "You are not authorized to access this page"
+      view_all: "View All"
+      recent_tests: "Recent Tests"
+      test_title: "Title"
+      category: "Category"
+      level: "Level"
+      status: "Status"
+      questions_count: "Questions"
+      actions: "Actions"
+      save: "Save"
+      cancel: "Cancel"
+      edit: "Edit"
+      delete: "Delete"
+      show: "Show"
+      confirm_delete: "Are you sure you want to delete this item?"
+
+    categories:
+      title: "Title"
+      new: "New Category"
+      edit: "Edit Category"
+      created: "Category was successfully created"
+      updated: "Category was successfully updated"
+      destroyed: "Category was successfully deleted"
+
+    tests:
+      new: "New Test"
+      edit: "Edit Test"
+      created: "Test was successfully created"
+      updated: "Test was successfully updated"
+      destroyed: "Test was successfully deleted"
+      status_updated: "Test status was successfully updated"
+      published: "Published"
+      select_category: "Select category"
+      not_found: "Test not found"
+      creator: "Creator"
+    users:
+      username: "Username"
+      email: "Email"
+      new: "New User"
+      edit: "Edit User"
+      created: "User was successfully created"
+      updated: "User was successfully updated"
+      destroyed: "User was successfully deleted"
+      passed_tests: "Passed Tests"
+
+  tests:
+    levels:
+      easy: "Easy"
+      medium: "Medium"
+      hard: "Hard"
+    status:
+      "true": "Published"
+      "false": "Draft"
+
+  questions:
+    body: "Question Text"
+    new: "New Question"

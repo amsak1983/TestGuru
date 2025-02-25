@@ -1,11 +1,48 @@
-<%= form_with model: [:admin, @test, @question], local: true do |form| %>
+<%= form_with model: [:admin, @test, question],
+              data: { controller: "form-validation nested-form",
+                      nested_form_target: "form" } do |form| %>
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, class: "form-control", rows: 3,
+                       data: { form_validation_target: "input" } %>
+    <% question.errors.full_messages_for(:body).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
 
-  <%= render 'shared/errors', resource: @question %>
+  <div class="mb-3">
+    <h5><%= t('admin.answers.title') %></h5>
+    <div data-nested-form-target="container">
+      <%= form.fields_for :answers do |answer_form| %>
+        <div class="answer-form mb-3 border p-3 rounded" data-nested-form-target="item">
+          <div class="d-flex align-items-center gap-3">
+            <div class="flex-grow-1">
+              <%= answer_form.label :body, class: "form-label" %>
+              <%= answer_form.text_field :body, class: "form-control",
+                                         data: { form_validation_target: "input" } %>
+              <% answer_form.object.errors.full_messages_for(:body).each do |message| %>
+                <div class="text-danger"><%= message %></div>
+              <% end %>
+            </div>
+            <div class="form-check">
+              <%= answer_form.check_box :correct, class: "form-check-input" %>
+              <%= answer_form.label :correct, t('admin.answers.correct'),
+                                    class: "form-check-label" %>
+            </div>
+            <%= answer_form.hidden_field :_destroy %>
+            <button type="button" class="btn btn-danger btn-sm"
+                    data-action="nested-form#remove">
+              <%= t('admin.labels.delete') %>
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_field :body, id: :question_body %>
-  </p>
-
-  <p><%= form.submit %></p>
+  <div class="d-flex gap-2">
+    <%= form.submit t('admin.labels.save'), class: "btn btn-primary" %>
+    <%= link_to t('admin.labels.cancel'), admin_test_path(@test),
+                class: "btn btn-secondary" %>
+  </div>
 <% end %>

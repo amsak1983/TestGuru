@@ -55,11 +55,13 @@ gem 'jquery-rails'
 
 gem 'turbolinks', '~> 5.2.0'
 
-gem 'bootstrap', '~> 5.2.0'
+gem 'bootstrap', '~> 5.3.3'
 
 gem 'rails-ujs', '~> 0.1.0'
 
 gem 'faraday'
+
+gem 'kaminari'
 
 gem 'faraday-retry'
 
@@ -82,6 +84,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'rubocop'
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]

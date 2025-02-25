@@ -77,11 +77,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_27_162254) do
     t.boolean "status", default: false
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["creator_id"], name: "index_tests_on_creator_id"
-    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
+    t.index ["title", "level", "category_id"], name: "index_tests_on_title_and_level_and_category_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
+    t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
@@ -100,7 +101,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_27_162254) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "username", null: false
-    t.string "type", default: "User", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

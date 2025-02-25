@@ -1,0 +1,19 @@
+<!-- app/views/admin/categories/_form.html.erb -->
+<%= form_with model: [:admin, category],
+              data: { controller: "form-validation" } do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title,
+                        class: "form-control",
+                        data: { form_validation_target: "input" } %>
+    <% category.errors.full_messages_for(:title).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="d-flex gap-2">
+    <%= form.submit t('admin.labels.save'), class: "btn btn-primary" %>
+    <%= link_to t('admin.labels.cancel'), admin_categories_path,
+                class: "btn btn-secondary" %>
+  </div>
+<% end %>

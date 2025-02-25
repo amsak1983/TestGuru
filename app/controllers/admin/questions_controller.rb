@@ -1,57 +1,88 @@
 # frozen_string_literal: true
 
-class Admin::QuestionsController < Admin::BaseController
-  before_action :find_test, only: %i[new create]
-  before_action :find_question, only: %i[show edit update destroy]
+module Admin
+  class QuestionsController < Admin::BaseController
+    before_action :set_question, only: %i[show edit update destroy]
+    before_action :set_test, only: %i[new create edit]
 
-  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+    # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def show; end
-
-  def new
-    @question = Question.new
-  end
-
-  def edit; end
-
-  def create
-    @question = @test.questions.build(question_params)
-
-    if @question.save
-      redirect_to [:admin, @question], notice: t('.success')
-    else
-      render :new
+    def index
+      @questions = Question.includes(:test).order(created_at: :desc)
+                     .page(params[:page])
     end
-  end
 
-  def update
-    if @question.update(question_params)
-      redirect_to [:admin, @question], notice: t('.updated')
-    else
-      render :edit
+    def show
+      @answers = @question.answers
     end
-  end
 
-  def destroy
-    @question.destroy
-    redirect_to admin_test_path(@question.test), notice: t('.deleted')
-  end
+    def new
+      @question = @test.questions.build
+      4.times { @question.answers.build }
+    end    
 
-  private
+    def edit
+      (4 - @question.answers.count).times { @question.answers.build } if @question.answers.count < 4
+    end
 
-  def find_test
-    @test = Test.find(params[:test_id])
-  end
+    def update
+      if @question.update(question_params)
+        redirect_to admin_test_path(@question.test), notice: t('admin.questions.updated')
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
 
-  def find_question
-    @question = Question.find(params[:id])
-  end
+    def create
+      @question = @test.questions.build(question_params)
+      respond_to do |format|
+        if @question.save
+          # format.html { redirect_to admin_test_path(@test), notice: t('admin.questions.created') }
+          format.html do
+            render json: {
+              success: true,
+              html:    render_to_string(partial: 'admin/tests/question',
+                                        locals:  { question: @question },
+                                        formats: [:html])
+            }
+          end
+        else
+          # format.html { render :new, status: :unprocessable_entity }
+          format.html { 
+            render json:   { success: false, errors: @question.errors.full_messages },
+                   status: :unprocessable_entity
+          }
+        end
+      end
+    end
 
-  def question_params
-    params.require(:question).permit(:body)
-  end
+    def destroy
+      @question.destroy
+      respond_to do |format|
+        format.html { 
+          redirect_to admin_test_path(@question.test),
+                      notice: t('admin.questions.destroyed')
+        }
+        format.json { render json: { success: true } }
+      end
+    end
 
-  def rescue_with_question_not_found
-    render plain: 'Question not found!'
+    private
+
+    def set_question
+      @question = Question.find(params[:id])
+    end
+
+    def set_test
+      @test = Test.find(params[:test_id])
+    end
+
+    def question_params
+      params.require(:question).permit(:body, answers_attributes: %i[id body correct _destroy])
+    end
+
+    def rescue_with_question_not_found
+      redirect_to admin_tests_path, alert: t('admin.questions.not_found')
+    end
   end
 end

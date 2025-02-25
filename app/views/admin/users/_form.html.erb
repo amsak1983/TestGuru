@@ -1,0 +1,49 @@
+<!-- app/views/admin/users/_form.html.erb -->
+<%= form_with model: [:admin, user],
+              data: { controller: "form-validation" } do |form| %>
+  <div class="mb-3">
+    <%= form.label :username, class: "form-label" %>
+    <%= form.text_field :username,
+                        class: "form-control",
+                        data: { form_validation_target: "input" } %>
+    <% user.errors.full_messages_for(:username).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.email_field :email,
+                         class: "form-control",
+                         data: { form_validation_target: "input" } %>
+    <% user.errors.full_messages_for(:email).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password, class: "form-label" %>
+    <%= form.password_field :password,
+                            class: "form-control",
+                            data: { form_validation_target: "input" } %>
+    <% user.errors.full_messages_for(:password).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password_confirmation, class: "form-label" %>
+    <%= form.password_field :password_confirmation,
+                            class: "form-control",
+                            data: { form_validation_target: "input" } %>
+    <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="d-flex gap-2">
+    <%= form.submit t('admin.labels.save'), class: "btn btn-primary" %>
+    <%= link_to t('admin.labels.cancel'), admin_users_path,
+                class: "btn btn-secondary" %>
+  </div>
+<% end %>

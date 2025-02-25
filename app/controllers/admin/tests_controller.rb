@@ -1,68 +1,88 @@
+# app/controllers/admin/tests_controller.rb
 # frozen_string_literal: true
 
-class Admin::TestsController < Admin::BaseController
-  before_action :find_tests, only: %i[index update_inline]
-  before_action :find_test, only: %i[show destroy update_inline update_status]
+module Admin
+  class TestsController < Admin::BaseController
+    before_action :set_test, only: %i[show edit update destroy
+                                      update_inline update_status]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-  def index; end
-
-  def show; end
-
-  def new
-    @test = Test.new
-  end
-
-  def edit; end
-
-  def update_inline
-    if @test.update(test_params)
-      redirect_to admin_tests_path
-    else
-      render :index
+    def index
+      @tests = Test.includes(:category).order(created_at: :desc)
+                 .page(params[:page])
     end
-  end
 
-  def create
-    @test = current_user.created_tests.new(test_params)
-
-    if @test.save
-      redirect_to [:admin, @test], notice: t('.success')
-    else
-      render :new
+    def show
+      @questions = @test.questions.includes(:answers)
+      @question = @test.questions.build
+      4.times { @question.answers.build }
     end
-  end
+
+    def new
+      @test = Test.new
+    end
+
+    def create
+      @test = Test.new(test_params)
+      @test.creator = current_user
+      if @test.save
+        redirect_to admin_tests_path,
+                    notice: t('admin.tests.created')
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
+
+    def edit; end
+
+    def update
+      if @test.update(test_params)
+        redirect_to admin_tests_path,
+                    notice: t('admin.tests.updated')
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+
+    def destroy
+      @test.destroy
+      redirect_to admin_tests_path,
+                  notice: t('admin.tests.destroyed')
+    end
+
+    def update_inline
+      if @test.update(test_params)
+        render json: { success: true }
+      else
+        render json:   { success: false, errors: @test.errors.full_messages },
+               status: :unprocessable_entity
+      end
+    end
 
     def update_status
-    if @test.update(status: !@test.status)
-      flash[:notice] = "Status updated"
-    else
-      flash[:alert] = "Something went wrong"
+      @test.update(status: !@test.status)
+      redirect_to admin_tests_path,
+                  notice: t('admin.tests.status_updated')
     end
-    redirect_to admin_tests_path
-  end
 
-  def destroy
-    @test.destroy
-    redirect_to admin_tests_path, notice: t('.deleted')
-  end
+    private
 
-  private
+    def set_test
+      @test = Test.find(params[:id])
+    end
 
-  def find_tests
-    @tests = Test.all
-  end
+    def test_params
+      params.require(:test).permit(:title, :level, :category_id, :status)
+    end
 
-  def test_params
-    params.require(:test).permit(:title, :level, :category_id)
-  end
+    def rescue_with_test_not_found
+      redirect_to admin_tests_path,
+                  alert: t('admin.tests.not_found')
+    end
 
-  def find_test
-    @test = Test.find(params[:id])
-  end
-
-  def rescue_with_test_not_found
-    render plain: 'Test not found!'
+    def authorize_admin!
+      redirect_to root_path, alert: t('admin.unauthorized') unless current_user.admin?
+    end
   end
 end

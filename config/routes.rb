@@ -20,15 +20,17 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root to: 'dashboard#index'
+    resources :categories
+    resources :users
     resources :gists, only: :index
 
     resources :tests do
-      patch :update_inline, on: :member
       patch :update_status, on: :member
 
-      resources :questions, shallow: true, except: :index do
-        resources :answers, shallow: true, except: :index
-      end
+      resources :questions # , shallow: true, except: :index do
+      resources :answers # , shallow: true, except: :index
+      # end
     end
   end
 end
