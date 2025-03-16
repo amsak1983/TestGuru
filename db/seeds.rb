@@ -32,17 +32,17 @@ test_9_hard = Test.create!(title: 'Информационная Безопасн
                            creator: admin)
 
 # Создание тестов для 10 класса
-test_10_easy = Test.create!(title: 'Программирование и Алгоритмы', level: :easy, category: category_10, creator: admin)
-test_10_medium = Test.create!(title: 'Базы Данных', level: :medium, category: category_10, creator: admin)
+test_10_easy = Test.create!(title: 'Программирование и Алгоритмы', level: :easy, category: category_10, creator: admin, status: true)
+test_10_medium = Test.create!(title: 'Базы Данных', level: :medium, category: category_10, creator: admin, status: true)
 test_10_hard = Test.create!(title: 'Информационная Безопасность и Защита Данных', level: :hard, category: category_10, 
-                            creator: admin)
+                            creator: admin, status: true)
 
 # Создание тестов для 11 класса
-test_11_easy = Test.create!(title: 'Программирование и Алгоритмы', level: :easy, category: category_11, creator: admin)
+test_11_easy = Test.create!(title: 'Программирование и Алгоритмы', level: :easy, category: category_11, creator: admin, status: true)
 test_11_medium = Test.create!(title: 'Компьютерные Системы и Архитектура', level: :medium, category: category_11, 
-                              creator: admin)
+                              creator: admin, status: true)
 test_11_hard = Test.create!(title: 'Информационная Безопасность и Защита Данных', level: :hard, category: category_11, 
-                            creator: admin)
+                            creator: admin, status: true)
 
 # Метод для создания вопросов и ответов
 def create_questions_and_answers(test, questions_data)

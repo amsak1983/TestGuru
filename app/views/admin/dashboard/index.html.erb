@@ -62,7 +62,7 @@
       <tbody>
       <% @recent_tests.each do |test| %>
         <tr>
-          <td><%= test.title %></td>
+          <td><%= link_to test.title, admin_test_path(test) %></td>
           <td><%= test.category.title %></td>
           <td><%= t("tests.levels.#{test.level}") %></td>
           <td>

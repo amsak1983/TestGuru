@@ -1,6 +1,4 @@
 ru:
-  hello: "Привет мир"
-
   helpers:
     select:
       prompt: "Выберите:"
@@ -58,6 +56,13 @@ ru:
      level: "Уровень"
      count: "Количество"
      actions: "Действия"
+    levels:
+     easy: "Легкий"
+     medium: "Средний"
+     hard: "Сложный"
+    status:
+     "true": "Опубликован"
+     "false": "Черновик"
 
   feedbacks:
     message: "Сообщение"

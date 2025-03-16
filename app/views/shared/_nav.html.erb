@@ -4,7 +4,7 @@
 
     <span class="navbar-text">
       <% if user_signed_in? %>
-        <p class="nav user">Welcome, <b class="ms-1 me-1"><%= current_user.username %></b> Guru |
+        <p class="nav user">Привет, <b class="ms-1 me-1"><%= current_user.username %></b> Guru |
           <% if current_user.is_a?(Admin) %>
             <%= link_to t("admin_alexey"), admin_tests_path, class: 'text-decoration-none me-2 ms-2' %> |
           <% end %>

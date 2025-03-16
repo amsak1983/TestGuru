@@ -3,7 +3,7 @@
 module Admin
   class QuestionsController < Admin::BaseController
     before_action :set_question, only: %i[show edit update destroy]
-    before_action :set_test, only: %i[new create edit]
+    before_action :set_test, only: %i[new create edit update]
 
     # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -37,8 +37,8 @@ module Admin
       @question = @test.questions.build(question_params)
       respond_to do |format|
         if @question.save
-          # format.html { redirect_to admin_test_path(@test), notice: t('admin.questions.created') }
-          format.html do
+          format.html { redirect_to admin_test_path(@test), notice: t('admin.questions.created') }
+          format.json do
             render json: {
               success: true,
               html:    render_to_string(partial: 'admin/tests/question',
@@ -47,8 +47,8 @@ module Admin
             }
           end
         else
-          # format.html { render :new, status: :unprocessable_entity }
-          format.html { 
+          format.html { render :new, status: :unprocessable_entity }
+          format.json {
             render json:   { success: false, errors: @question.errors.full_messages },
                    status: :unprocessable_entity
           }

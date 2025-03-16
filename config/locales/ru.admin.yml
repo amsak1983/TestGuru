@@ -2,7 +2,8 @@
 ru:
   admin:
     labels:
-      title: "Панель администратора"
+      root_title: ""
+      title: "На главную"
       dashboard: "Панель управления"
       categories: "Категории"
       tests: "Тесты"
@@ -25,6 +26,7 @@ ru:
       category: "Категория"
       status: "Статус"
       questions_count: "Количество вопросов"
+      no_tests: "Тесты еще не добавлены"
 
     categories:
       title: "Название"
@@ -37,14 +39,17 @@ ru:
     tests:
       new: "Новый тест"
       edit: "Редактировать тест"
-      created: "Тест успешно создан"
-      updated: "Тест успешно обновлен"
       destroyed: "Тест успешно удален"
       status_updated: "Статус теста успешно обновлен"
       published: "Опубликован"
       select_category: "Выберите категорию"
       not_found: "Тест не найден"
       creator: "Создатель"
+
+      title: "Тесты"
+      created: "Тест успешно создан."
+      updated: "Тест успешно обновлен."
+      back: "Назад"
     users:
       username: "Имя пользователя"
       email: "Email"
@@ -55,24 +60,7 @@ ru:
       destroyed: "Пользователь успешно удален"
       passed_tests: "Пройденные тесты"
 
-    tests:
-      levels:
-        easy: "Легкий"
-        medium: "Средний"
-        hard: "Сложный"
-      status:
-        "true": "Опубликован"
-        "false": "Черновик"
-      title: "Тесты"
-      new: "Новый тест"
-      created: "Тест успешно создан."
-      updated: "Тест успешно обновлен."
-      destroyed: "Тест успешно удален."
-      not_found: "Тест не найден."
-      back: "Назад"
-      published: "Опубликован"
-      select_category: "Выберите категорию"
-      edit: "Редактировать тест"
+
 
     questions:
       body: "Текст вопроса"

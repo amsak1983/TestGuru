@@ -2,7 +2,7 @@
 en:
   admin:
     labels:
-      title: "Admin Panel"
+      title: "Homepage"
       dashboard: "Dashboard"
       categories: "Categories"
       tests: "Tests"
@@ -24,6 +24,7 @@ en:
       delete: "Delete"
       show: "Show"
       confirm_delete: "Are you sure you want to delete this item?"
+      no_tests: "No tests available."
 
     categories:
       title: "Title"

@@ -12,9 +12,41 @@
     </div>
   </div>
   <div class="card-body">
-    <p>
-      <strong><%= t('admin.labels.tests_count') %>:</strong>
-      <%= @category.tests.count %>
-    </p>
+    <h6><%= t('admin.labels.tests') %>:</h6>
+    <% if @category.tests.any? %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= t('admin.tests.title') %></th>
+            <th><%= t('admin.labels.actions') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @category.tests.each do |test| %>
+            <tr>
+              <td><%= link_to test.title, admin_test_path(test), class: "text-primary" %></td>
+              <td>
+                <%= link_to t('admin.labels.edit'), edit_admin_test_path(test),
+                            class: "btn btn-sm btn-warning" %>
+                <%= link_to t('admin.labels.delete'), admin_test_path(test),
+                            method: :delete,
+                            data: { confirm: t('admin.labels.confirm_delete') },
+                            class: "btn btn-sm btn-danger" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p><%= t('admin.labels.no_tests') %></p>
+    <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p><%= t('admin.labels.no_tests') %></p>
+    <% end %>
   </div>
 </div>
