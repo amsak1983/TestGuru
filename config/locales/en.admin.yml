@@ -61,8 +61,8 @@ en:
       medium: "Medium"
       hard: "Hard"
     status:
-      "true": "Published"
-      "false": "Draft"
+      1: "Published"
+      0: "Draft"
 
   questions:
     body: "Question Text"

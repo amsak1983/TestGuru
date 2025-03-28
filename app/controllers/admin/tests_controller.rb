@@ -4,7 +4,7 @@
 module Admin
   class TestsController < Admin::BaseController
     before_action :set_test, only: %i[show edit update destroy
-                                      update_inline update_status]
+                                      update_status]
 
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -51,17 +51,8 @@ module Admin
                   notice: t('admin.tests.destroyed')
     end
 
-    def update_inline
-      if @test.update(test_params)
-        render json: { success: true }
-      else
-        render json:   { success: false, errors: @test.errors.full_messages },
-               status: :unprocessable_entity
-      end
-    end
-
     def update_status
-      @test.update(status: !@test.status)
+      @test.update!(status: @test.draft? ? :active : :draft)
       redirect_to admin_tests_path,
                   notice: t('admin.tests.status_updated')
     end

@@ -22,7 +22,7 @@
 class Answer < ApplicationRecord
   belongs_to :question, inverse_of: :answers
 
-  #validates :body, presence: true
+  # validates :body, presence: true
   validate :limit_answers, on: :create
 
   scope :correct, -> { where(correct: true) }

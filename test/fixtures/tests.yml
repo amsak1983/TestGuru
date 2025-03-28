@@ -4,7 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  level       :integer          default("medium"), not null
-#  status      :boolean          default(FALSE)
+#  status      :integer          default("draft")
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

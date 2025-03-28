@@ -24,18 +24,8 @@ class Question < ApplicationRecord
   has_many :gists, dependent: :destroy
   has_many :test_passages, foreign_key: :current_question_id, dependent: :destroy
 
-  #validate :at_least_one_correct_answer
   validates :body, presence: true
-  #validates :answers, length: { minimum: 2, message: "Question must have at least 2 answers" }
   accepts_nested_attributes_for :answers,
                                 allow_destroy: true,
                                 reject_if:     :all_blank
-
-
-  private
-  def at_least_one_correct_answer
-    errors.add(:answers, "Question must have at least one correct answer") unless answers.any?(&:correct)
-  end
-
-
 end

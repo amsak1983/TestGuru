@@ -6,7 +6,7 @@
 #
 #  id          :bigint           not null, primary key
 #  level       :integer          default("medium"), not null
-#  status      :boolean          default(FALSE)
+#  status      :integer          default("draft")
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -24,7 +24,6 @@
 #  fk_rails_...  (category_id => categories.id)
 #  fk_rails_...  (creator_id => users.id)
 #
-# app/models/test.rb
 class Test < ApplicationRecord
   belongs_to :category
   belongs_to :creator, class_name: 'User', foreign_key: :creator_id
@@ -35,11 +34,12 @@ class Test < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: %i[level category_id] }
 
   enum level: { easy: 0, medium: 1, hard: 2 }
+  enum status: { draft: 0, active: 1 }
 
   scope :easy, -> { where(level: :easy) }
   scope :medium, -> { where(level: :medium) }
   scope :hard, -> { where(level: :hard) }
-  scope :ready, -> { where(status: true) }
+  scope :ready, -> { where(status: 1) }
   scope :by_category, ->(category_title) { joins(:category).where(categories: { title: category_title }) }
 
   def self.titles_by_category(category_title)
