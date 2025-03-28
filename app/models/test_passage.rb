@@ -6,6 +6,7 @@
 #
 #  id                  :bigint           not null, primary key
 #  correct_questions   :integer          default(0)
+#  successful          :boolean          default(FALSE)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  current_question_id :bigint
@@ -31,11 +32,10 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: %i[create update]
+  before_validation :set_first_or_next_question, on: %i[create update]
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-
     save!
   end
 
@@ -56,12 +56,28 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
+    
     test.questions.index(current_question) + 1
+  rescue StandardError
+    nil
+    
+  end
+
+  def check_time_expired?
+    (Time.current - created_at) >= test.duration.seconds if test.duration.nonzero?
+  end
+
+  def check_successful_completed!
+    update_column(:successful, true) if completed? && successful_passage?
+  end
+
+  def successful?
+    successful
   end
 
   private
 
-  def before_validation_set_first_question
+  def set_first_or_next_question
     if current_question.nil?
       self.current_question = test.questions.first if test.present?
     else

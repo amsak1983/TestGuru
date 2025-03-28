@@ -34,6 +34,10 @@
       <div class="text-danger"><%= message %></div>
     <% end %>
   </div>
+  <%= form.label :duration, class: "form-label" %>
+  <%= form.text_field :duration,
+                      class: "form-control",
+                      data: { form_validation_target: "input" } %>
 
   <div class="mb-3 form-check">
     <%= form.check_box :status, class: "form-check-input" %>
