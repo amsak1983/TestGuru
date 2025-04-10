@@ -10,19 +10,28 @@
 
 <p><%= @test_passage.current_question_number %> <%= t('.of') %> <%= @test_passage.questions_count %></p>
 
+<div data-controller="test-timer"
+     data-test-timer-duration-value="<%= @test_passage.test.duration %>"
+     data-start-time="<%= @test_passage.created_at.iso8601 %>">
+  <div class="alert alert-info" role="alert">
+    <%= t('test_passages.show.remaining_time') %>: <span data-test-timer-target="remainingTime">--:--</span>
+  </div>
+</div>
+
+
 <p>
   <b><%= @test_passage.current_question.body %></b>
 </p>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-    <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body,
-                                    include_hidden: false do |b| %>
-      <p>
-        <%= b.check_box id: "answer_ids_#{b.object_id}" %>
-        <%= b.label  %>
-      </p>
-    <% end %>
+  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body,
+                                  include_hidden: false do |b| %>
+    <p>
+      <%= b.check_box id: "answer_ids_#{b.object_id}" %>
+      <%= b.label  %>
+    </p>
+  <% end %>
 
-    <p><%= link_to 'Gist Question', gists_path(@test_passage), method: :post, class: 'text-decoration-none' %></p>
-    <p><%= form.submit t('next'), class: 'btn btn-primary btn-next' %></p>
+  <p><%= link_to 'Gist Question', gists_path(@test_passage), method: :post, class: 'text-decoration-none' %></p>
+  <p><%= form.submit t('next'), class: 'btn btn-primary btn-next' %></p>
 <% end %>

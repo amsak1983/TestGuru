@@ -5,6 +5,7 @@
 # Table name: tests
 #
 #  id          :bigint           not null, primary key
+#  duration    :integer          default(900)
 #  level       :integer          default("medium"), not null
 #  status      :integer          default("draft")
 #  title       :string           not null
