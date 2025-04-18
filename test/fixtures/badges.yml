@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: badges
+#
+#  id         :bigint           not null, primary key
+#  image      :string
+#  image_url  :string
+#  rule       :string
+#  status     :integer          default("inactive")
+#  title      :string
+#  value      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  title: MyString
+  image_url: MyString
+  rule: MyString
+
+two:
+  title: MyString
+  image_url: MyString
+  rule: MyString

@@ -72,6 +72,11 @@ ru:
     success: "Сообщение успешно отправлено!"
     feedback: "Связаться"
 
+  profile:
+    show:
+      header: "Личный кабинет"
+      earned_badges: "Заработанные бейджи:"
+      no_earned_badges: "У вас ещё нет заработанных бейджей."
   admin_:
     tests:
       new:

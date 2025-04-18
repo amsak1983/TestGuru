@@ -1,0 +1,19 @@
+<!-- app/views/profile/show.html.erb -->
+<h1><%= t('profile.show.header') %></h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <h2><%= t('profile.show.earned_badges') %></h2>
+    <% if @earned_badges.any? %>
+      <ul>
+        <% @earned_badges.each do |badge| %>
+          <li>
+            <%= image_tag("/badges/#{badge.image}", height: '50', alt: badge.title) %> <%= badge.title %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p><%= t('profile.show.no_earned_badges') %></p>
+    <% end %>
+  </div>
+</div>

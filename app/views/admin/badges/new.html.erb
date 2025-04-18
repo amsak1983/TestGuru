@@ -1,0 +1,6 @@
+<!-- app/views/admin/badges/new.html.erb -->
+<h1><%= t('admin.badges.new.header') %></h1>
+
+<%= render 'form', badge: @badge %>
+
+<%= link_to t('shared.actions.back'), admin_badges_path, class: 'btn btn-secondary' %>

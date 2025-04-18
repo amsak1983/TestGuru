@@ -31,7 +31,30 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  delegate :category, to: :test
+
   before_validation :before_validation_set_first_question, on: %i[create update]
+
+  scope :successful, lambda {
+    joins(:test).select('test_passages.*, COUNT(questions.id) as questions_count')
+      .joins('JOIN questions ON questions.test_id = tests.id')
+      .group('test_passages.id')
+      .having('correct_questions * 100.0 / COUNT(questions.id) >= ?', COMPLETION_SCORE)
+  }
+  scope :category, lambda { |category_id|
+    joins(:test).where(tests: { category_id: category_id })
+  }
+  scope :level, lambda { |level|
+    joins(:test).where(tests: { level: level })
+  }
+
+  scope :completed, lambda {
+    where(current_question_id: nil)
+  }
+
+  scope :attempts_count, lambda { |user_id, test_id|
+    completed.where(user_id: user_id, test_id: test_id).count
+  }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)

@@ -14,6 +14,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.time_expired? || @test_passage.completed?
       set_flash_alert
+      BadgeAssigner.new(@test_passage).call
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else

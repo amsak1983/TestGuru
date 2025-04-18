@@ -14,6 +14,8 @@ Category.destroy_all
 Test.destroy_all
 Question.destroy_all
 Answer.destroy_all
+UserBadge.destroy_all
+Badge.destroy_all
 
 admin = User.create!(first_name: 'Alexey', last_name: 'Kasabutsky', username: 'bobcop', email: 'amsak@yandex.by', admin: true,
                      password: 'zse4321')
@@ -435,5 +437,30 @@ questions_11_hard = [
 create_questions_and_answers(test_11_easy, questions_11_easy)
 create_questions_and_answers(test_11_medium, questions_11_medium)
 create_questions_and_answers(test_11_hard, questions_11_hard)
+
+Badge.create!(
+  [
+    {
+      title:  'Пройдены все тесты категории "Информатика 9кл."',
+      rule:   'all_category_tests_passed',
+      image:  'trophy.png',
+      status: :active,
+      value:  Category.first.id
+    },
+    {
+      title:  'Тест пройден с 1й попытки',
+      rule:   'first_attempt_success',
+      image:  'first_place_ribbon.png',
+      status: :active
+    },
+    {
+      title:  'Пройдены все тесты уровня "Легкий"',
+      rule:   'all_level_tests_passed',
+      image:  'graduation-cap.png',
+      status: :active,
+      value:  '1'
+    }
+  ]
+)
 
 puts 'Seeds успешно созданы!'
