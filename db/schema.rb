@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_28_082030) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+    t.integer "duration", default: 900
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["creator_id"], name: "index_tests_on_creator_id"
     t.index ["title", "level", "category_id"], name: "index_tests_on_title_and_level_and_category_id", unique: true

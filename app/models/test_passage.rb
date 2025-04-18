@@ -59,6 +59,10 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
+  def time_expired?
+    (Time.current - created_at) >= test.duration.seconds
+  end
+
   private
 
   def before_validation_set_first_question

@@ -33,14 +33,17 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
-      success: 'Успешно!'
-      fail: "Неудачно"
+      header: "Тест %{title} завершён!"
+      success: 'Вы успешно прошли тест!'
+      fail: "К сожалению, вы не прошли тест. Попробуйте еще раз!"
       percentage: "Ваш процент прохождения: "
     show:
       header: "Прохождение %{title} теста"
       of: "из"
-
+      remaining_time: "Времени осталось"
+    update:
+      time_expired: "Время истекло. Ваши ответы отправлены."
+      completed: "Тест завершен. Ваши ответы отправлены."
   gist:
     email: "Почта"
     url: "Ссылка"
@@ -127,3 +130,6 @@ ru:
   test_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+  shared:
+    actions:
+      back: "Вернуться назад"

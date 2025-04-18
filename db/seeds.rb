@@ -25,26 +25,27 @@ category_11 = Category.create!(title: 'Информатика 11 класс')
 
 # Создание тестов для 9 класса
 test_9_easy = Test.create!(title: 'Основы Алгоритмизации и Программирование', level: :easy, category: category_9, 
-                           creator: admin)
+                           creator: admin, status: 1, duration: 10.minutes)
 test_9_medium = Test.create!(title: 'Компьютерные Сети и Интернет', level: :medium, category: category_9, 
-                             creator: admin)
+                             creator: admin, status: 1, duration: 15.minutes)
 test_9_hard = Test.create!(title: 'Информационная Безопасность и Этика', level: :hard, category: category_9, 
-                           creator: admin)
+                           creator: admin, status: 1, duration: 20.minutes)
 
 # Создание тестов для 10 класса
 test_10_easy = Test.create!(title: 'Программирование и Алгоритмы', level: :easy, category: category_10, creator: admin, 
-                            status: 1)
-test_10_medium = Test.create!(title: 'Базы Данных', level: :medium, category: category_10, creator: admin, status: 1)
+                            status: 1, duration: 10.minutes)
+test_10_medium = Test.create!(title: 'Базы Данных', level: :medium, category: category_10, creator: admin, status: 1, 
+                              duration: 15.minutes)
 test_10_hard = Test.create!(title: 'Информационная Безопасность и Защита Данных', level: :hard, category: category_10, 
-                            creator: admin, status: 1)
+                            creator: admin, status: 1, duration: 20.minutes)
 
 # Создание тестов для 11 класса
 test_11_easy = Test.create!(title: 'Программирование и Алгоритмы', level: :easy, category: category_11, creator: admin, 
-                            status: 1)
+                            status: 1, duration: 10.minutes)
 test_11_medium = Test.create!(title: 'Компьютерные Системы и Архитектура', level: :medium, category: category_11, 
-                              creator: admin, status: 1)
+                              creator: admin, status: 1, duration: 15.minutes)
 test_11_hard = Test.create!(title: 'Информационная Безопасность и Защита Данных', level: :hard, category: category_11, 
-                            creator: admin, status: 1)
+                            creator: admin, status: 1, duration: 20.minutes)
 
 # Метод для создания вопросов и ответов
 def create_questions_and_answers(test, questions_data)
