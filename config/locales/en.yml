@@ -41,7 +41,9 @@ en:
     show:
       header: "Passing the %{title} test"
       of: "of"
-
+      remaining_time: "Remaining time"
+    update:
+      time_expired: "The time has expired. Your answers have been submitted."
   gist:
     email: "Email"
     url: "Url"

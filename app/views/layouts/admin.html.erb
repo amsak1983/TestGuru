@@ -31,6 +31,9 @@
           <%= link_to t('admin.labels.tests'), admin_tests_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to t('admin.labels.badges'), admin_badges_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to t('admin.labels.users'), admin_users_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
@@ -48,14 +51,7 @@
 </nav>
 
 <div class="container-fluid mt-4">
-  <% flash.each do |type, msg| %>
-    <div class="alert alert-<%= bootstrap_flash_class(type) %> alert-dismissible fade show" role="alert">
-      <%= msg %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert"
-              aria-label="Close"></button>
-    </div>
-  <% end %>
-
+  <%= render 'shared/flash' %>
   <%= yield %>
 </div>
 </body>

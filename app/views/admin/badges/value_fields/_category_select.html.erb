@@ -1,0 +1,5 @@
+<!-- app/views/admin/badges/value_fields/_category_select.html.erb -->
+<%= form.select :value,
+                Category.sort_by_title.map { |category| [category.title, category.id ] },
+                {prompt: t('admin.tests.select_category')},
+                {class: 'form-select'} %>

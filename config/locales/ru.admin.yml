@@ -9,6 +9,7 @@ ru:
       tests: "Тесты"
       users: "Пользователи"
       gists: "Гисты"
+      badges: "Награды"
       logout: "Выйти"
       unauthorized: "У вас нет прав для доступа к этой странице"
       view_all: "Посмотреть все"
@@ -43,6 +44,7 @@ ru:
       status_updated: "Статус теста успешно обновлен"
       published: "Опубликован"
       select_category: "Выберите категорию"
+      select_level: "Выберите уровень"
       not_found: "Тест не найден"
       creator: "Создатель"
 
@@ -75,3 +77,26 @@ ru:
       title: "Ответы"
       correct: "Правильный"
       body: 'Ответ'
+    badges:
+      rules:
+        first_attempt_success: "Тест пройден с первой попытки"
+        all_level_tests_passed: "Пройдены все тесты уровня"
+        all_category_tests_passed: "Пройдены все тесты в категории"
+      index:
+        header: "Управление бейджами"
+        title: "Название"
+        image_url: "Ссылка на изображение"
+        rule: "Правило"
+        value: "Значение"
+        edit: "Редактировать"
+        destroy: "Удалить"
+      new:
+        header: "Добавить новый бейдж"
+      form:
+        title: "Название"
+        image_url: "Ссылка на изображение"
+        rule: "Правило"
+        active: "Активный"
+        inactive: "Неактивный"
+      update:
+        updated: "Награда успешна обновлена"

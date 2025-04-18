@@ -5,6 +5,7 @@
 # Table name: tests
 #
 #  id          :bigint           not null, primary key
+#  duration    :integer          default(900)
 #  level       :integer          default("medium"), not null
 #  status      :integer          default("draft")
 #  title       :string           not null
@@ -32,6 +33,7 @@ class Test < ApplicationRecord
   has_many :users, through: :test_passages
 
   validates :title, presence: true, uniqueness: { scope: %i[level category_id] }
+  validates :duration, numericality: { only_integer: true, greater_than: 0 }
 
   enum level: { easy: 0, medium: 1, hard: 2 }
   enum status: { draft: 0, active: 1 }
