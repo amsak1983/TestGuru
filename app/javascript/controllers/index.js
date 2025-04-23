@@ -1,11 +1,16 @@
-// Import and register all your controllers from the importmap under controllers/*
+import { Application } from "@hotwired/stimulus"
 
-import { application } from "controllers/application"
+import TestTimerController from "./test_timer_controller"
 
-// Eager load all controllers defined in the import map under controllers/**/*_controller
-import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
-eagerLoadControllersFrom("controllers", application)
+const application = Application.start()
 
-// Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
+application.register("test-timer", TestTimerController)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
+
+
+// Configure Stimulus development experience
+application.debug = true
+window.Stimulus   = application
+
+export { application }

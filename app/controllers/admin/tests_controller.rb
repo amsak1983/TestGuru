@@ -64,7 +64,8 @@ module Admin
     end
 
     def test_params
-      params.require(:test).permit(:title, :level, :category_id, :status)
+      params[:test][:status] = params[:test][:status].to_i
+      params.require(:test).permit(:title, :level, :category_id, :status, :duration)
     end
 
     def rescue_with_test_not_found
