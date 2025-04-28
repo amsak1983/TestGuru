@@ -47,6 +47,8 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: { case_sensitive: false }, format: URI::MailTo::EMAIL_REGEXP
   validates :username, :email, presence: true
+  has_many :user_badges, dependent: :destroy
+  has_many :badges, -> { distinct }, through: :user_badges
 
   def show_tests(level)
     tests.where(level:)

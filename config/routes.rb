@@ -21,15 +21,17 @@ Rails.application.routes.draw do
       resources :gists, only: :create
     end
   end
+  resources :profile, only: %i[show]
 
   namespace :admin do
     root to: 'dashboard#index'
     resources :categories
     resources :users
     resources :gists, only: :index
+    resources :badges, only: %i[index new create edit update destroy]
 
     resources :tests do
-      patch :update_status, on: :member
+      get :update_status, on: :member
 
       resources :questions # , shallow: true, except: :index do
       resources :answers # , shallow: true, except: :index

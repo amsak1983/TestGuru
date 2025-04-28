@@ -64,6 +64,7 @@ module Admin
     end
 
     def test_params
+      params[:test][:status] = params[:test][:status].to_i if params[:test][:status].present?
       params.require(:test).permit(:title, :level, :category_id, :status)
     end
 

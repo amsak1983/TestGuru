@@ -1,0 +1,34 @@
+<!-- app/views/admin/badges/index.html.erb -->
+<h1><%= t('admin.badges.index.header') %></h1>
+
+<%= link_to t('admin.badges.new.header'), new_admin_badge_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th><%= t('admin.badges.index.title') %></th>
+    <th><%= t('admin.badges.index.image_url') %></th>
+    <th><%= t('admin.badges.index.rule') %></th>
+    <th><%= t('admin.badges.index.value') %></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @badges.each do |badge| %>
+    <tr>
+      <td><%= badge.title %></td>
+      <td><%= image_tag("/badges/#{badge.image}", height: '50') %></td>
+      <td><%= t("admin.badges.rules.#{badge.rule}") %></td>
+      <td><%= badge_value_text(badge) %></td>
+      <td><%= link_to t('admin.badges.index.edit'), edit_admin_badge_path(badge), class: 'btn btn-warning' %></td>
+      <td><%= link_to t('admin.badges.index.destroy'), admin_badge_path(badge),
+                      method: :delete, data: { confirm: t('shared.confirmation.are_you_sure') }, class: 'btn btn-danger' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+

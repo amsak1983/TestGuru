@@ -8,6 +8,7 @@ en:
       tests: "Tests"
       users: "Users"
       gists: "Gists"
+      badges: "Badges"
       logout: "Logout"
       unauthorized: "You are not authorized to access this page"
       view_all: "View All"
@@ -67,3 +68,10 @@ en:
   questions:
     body: "Question Text"
     new: "New Question"
+    badges:
+  form:
+    title: "Title"
+    image_url: "Image URL"
+    rule: "Rule"
+    active: "Active"
+    inactive: "Inactive"

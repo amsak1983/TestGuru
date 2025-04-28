@@ -6,6 +6,7 @@
 #
 #  id                  :bigint           not null, primary key
 #  correct_questions   :integer          default(0)
+#  successful          :boolean          default(FALSE)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  current_question_id :bigint

@@ -1,0 +1,5 @@
+<!-- app/views/admin/badges/value_fields/_level_select.html -->
+<%= form.select :value,
+                Test.levels.map { |k, v| [t("tests.levels.#{k}"), k] },
+                { prompt: t('admin.tests.select_level') },
+                class: "form-select" %>
