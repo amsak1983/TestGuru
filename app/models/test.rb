@@ -5,6 +5,7 @@
 # Table name: tests
 #
 #  id          :bigint           not null, primary key
+#  duration    :integer          default(0)
 #  level       :integer          default("medium"), not null
 #  status      :integer          default("draft")
 #  title       :string           not null
@@ -40,7 +41,12 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: :medium) }
   scope :hard, -> { where(level: :hard) }
   scope :ready, -> { where(status: 1) }
-  scope :by_category, ->(category_title) { joins(:category).where(categories: { title: category_title }) }
+  scope :by_category, lambda { |category_title|
+    return self unless category_title.present?
+
+    sanitized_title = ActiveRecord::Base.sanitize_sql_like(category_title)
+    joins(:category).where(Category.arel_table[:title].matches(sanitized_title))
+  }
 
   def self.titles_by_category(category_title)
     by_category(category_title).pluck(:title)

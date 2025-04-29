@@ -1,0 +1,19 @@
+<!-- app/views/admin/badges/value_fields/_category_select.html.erb -->
+<!-- app/views/admin/badges/value_fields/_category_select.html.erb -->
+
+<div data-controller="category-copy">
+  <% Category.sort_by_title.pluck(:title).each do |category_title| %>
+    <span
+      role="button"
+      class="badge rounded-pill bg-primary category-title-badge me-1"
+      data-action="click->category-copy#copy"
+      data-category-copy-value-param="<%= category_title %>"
+    >
+      <%= category_title %>
+    </span>
+  <% end %>
+
+  <%= form.text_field :value,
+                      class: 'form-control mt-3',
+                      data: { category_copy_target: "input" } %>
+</div>
